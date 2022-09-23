@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 21 sep. 2022 à 15:59
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Hôte : 127.0.0.1
+-- Généré le : ven. 23 sep. 2022 à 13:50
+-- Version du serveur : 10.4.24-MariaDB
+-- Version de PHP : 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,15 +27,13 @@ SET time_zone = "+00:00";
 -- Structure de la table `article`
 --
 
-DROP TABLE IF EXISTS `article`;
-CREATE TABLE IF NOT EXISTS `article` (
+CREATE TABLE `article` (
   `id` int(3) NOT NULL,
   `catégorie` varchar(40) NOT NULL,
   `titre` varchar(128) NOT NULL,
   `descriptif` varchar(256) NOT NULL,
   `contenu` varchar(256) NOT NULL,
-  `illustration` varchar(256) NOT NULL,
-  PRIMARY KEY (`id`)
+  `illustration` varchar(256) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -44,11 +42,9 @@ CREATE TABLE IF NOT EXISTS `article` (
 -- Structure de la table `categorie`
 --
 
-DROP TABLE IF EXISTS `categorie`;
-CREATE TABLE IF NOT EXISTS `categorie` (
+CREATE TABLE `categorie` (
   `id` int(3) NOT NULL,
-  `nom` varchar(128) NOT NULL,
-  PRIMARY KEY (`id`)
+  `nom` varchar(128) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -57,8 +53,7 @@ CREATE TABLE IF NOT EXISTS `categorie` (
 -- Structure de la table `lien`
 --
 
-DROP TABLE IF EXISTS `lien`;
-CREATE TABLE IF NOT EXISTS `lien` (
+CREATE TABLE `lien` (
   `id_article` int(3) NOT NULL,
   `id_sous_cat` int(3) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -69,13 +64,11 @@ CREATE TABLE IF NOT EXISTS `lien` (
 -- Structure de la table `multimédia`
 --
 
-DROP TABLE IF EXISTS `multimédia`;
-CREATE TABLE IF NOT EXISTS `multimédia` (
+CREATE TABLE `multimédia` (
   `id` int(3) NOT NULL,
   `nom` varchar(128) NOT NULL,
   `type` varchar(128) NOT NULL,
-  `id_user` int(3) NOT NULL,
-  PRIMARY KEY (`id`)
+  `id_user` int(3) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -84,12 +77,10 @@ CREATE TABLE IF NOT EXISTS `multimédia` (
 -- Structure de la table `sous_categorie`
 --
 
-DROP TABLE IF EXISTS `sous_categorie`;
-CREATE TABLE IF NOT EXISTS `sous_categorie` (
+CREATE TABLE `sous_categorie` (
   `id_sous_cat` int(3) NOT NULL,
   `id_cat` int(3) NOT NULL,
-  `nom` varchar(128) NOT NULL,
-  PRIMARY KEY (`id_sous_cat`)
+  `nom` varchar(128) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -98,15 +89,88 @@ CREATE TABLE IF NOT EXISTS `sous_categorie` (
 -- Structure de la table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `id` int(3) NOT NULL,
   `email` varchar(100) NOT NULL,
   `motDePasse` varchar(25) NOT NULL,
   `role` varchar(20) NOT NULL,
-  `pseudo` varchar(21) NOT NULL,
-  PRIMARY KEY (`id`)
+  `pseudo` varchar(21) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `motDePasse`, `role`, `pseudo`) VALUES
+(1, '', '061bbb63afc4d9bc16788f7c3', '', 'test');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `article`
+--
+ALTER TABLE `article`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `lien`
+--
+ALTER TABLE `lien`
+  ADD PRIMARY KEY (`id_article`);
+
+--
+-- Index pour la table `multimédia`
+--
+ALTER TABLE `multimédia`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `sous_categorie`
+--
+ALTER TABLE `sous_categorie`
+  ADD PRIMARY KEY (`id_sous_cat`);
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `article`
+--
+ALTER TABLE `article`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `multimédia`
+--
+ALTER TABLE `multimédia`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
