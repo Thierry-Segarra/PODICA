@@ -10,13 +10,11 @@ if(isset($_POST['username']) && isset($_POST['password']))
     $username = mysqli_real_escape_string($db,htmlspecialchars($_POST['username']));
     $password = mysqli_real_escape_string($db,htmlspecialchars($_POST['password']));
     
-    if($username !== "" && $password !== "" && $email !== "")
+    if($username !== "" && $password !== "")
     {
-      $conf = $username; // change pour chaque nom_utilisateur
-      $pwd_peppered = hash_hmac("md5", $password, 7);
+      $pwd_peppered = hash_hmac("md5", $password, $username);
 
-      $requete = "SELECT count(*) FROM user where 
-         pseudo = '".$username."' and motDePasse = '".$pwd_peppered."' ";
+      $requete = "SELECT count(*) FROM user where pseudo = '".$username."' and motDePasse = '".$pwd_peppered."' ";
       $exec_requete = mysqli_query($db,$requete);
       $reponse      = mysqli_fetch_array($exec_requete);
       $count = $reponse['count(*)'];

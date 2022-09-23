@@ -23,7 +23,7 @@ if(isset($_POST['username']) && isset($_POST['password'])&& isset($_POST['passwo
 
             if($count==0) // !=0 si le nom_utilisateur et deja utiliser | == 0 si le nom_utilisateur n'est pas utiliser
             {   
-                $pwd_peppered = hash_hmac("md5", $password, 7); // sha256 mieux que md5 mais c'est pour le test
+                $pwd_peppered = hash_hmac("md5", $password, $username); // sha256 mieux que md5 mais c'est pour le test
 
                 $requete = "INSERT INTO `user`(`pseudo`, `motDePasse`, `email`) VALUES ('".$username."','".$pwd_peppered."','".$email."')"; // id auto-increase
                 $requete = mysqli_query($db,$requete) or die("Foobar");// doit normalement executer la requete SQL
