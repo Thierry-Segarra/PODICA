@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 23 sep. 2022 à 13:50
+-- Généré le : ven. 23 sep. 2022 à 14:00
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 7.4.29
 
@@ -165,6 +165,12 @@ ALTER TABLE `categorie`
 --
 ALTER TABLE `multimédia`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `sous_categorie`
+--
+ALTER TABLE `sous_categorie`
+  MODIFY `id_sous_cat` int(3) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `user`
