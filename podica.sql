@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 23 sep. 2022 à 14:00
+-- Généré le : ven. 23 sep. 2022 à 16:03
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 7.4.29
 
@@ -92,7 +92,7 @@ CREATE TABLE `sous_categorie` (
 CREATE TABLE `user` (
   `id` int(3) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `motDePasse` varchar(25) NOT NULL,
+  `motDePasse` varchar(100) NOT NULL,
   `role` varchar(20) NOT NULL,
   `pseudo` varchar(21) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -102,7 +102,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `motDePasse`, `role`, `pseudo`) VALUES
-(1, '', '061bbb63afc4d9bc16788f7c3', '', 'test');
+(1, '', '061bbb63afc4d9bc16788f7c3', '', 'test'),
+(2, 'pute@gmail.com', '151cda9b5a6893a1eeafde996', '', 'pute'),
+(3, 'mst@com', '061bbb63afc4d9bc16788f7c3', '', 'mst'),
+(4, 'TESTF@gmail.com', '5689354bcae35a5d5e3a36ea1', '', 'testF'),
+(5, 'TESTF2@gmail.com', '7c9e7b3182be05564447f4435', '', 'testf2');
 
 --
 -- Index pour les tables déchargées
@@ -176,7 +180,7 @@ ALTER TABLE `sous_categorie`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
