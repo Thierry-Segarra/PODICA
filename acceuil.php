@@ -11,7 +11,7 @@
     if($_SESSION['username'] != ""){
         $nom = $_SESSION['username'];
             echo '<p class="titre">Hello '. $nom .'</p>';
-        echo'<a href="index.php?deco=1" class="deco">Déconnection</a> <br><br><br><a href="sup.php" class="deco">Suprimé Compte</a>';
+        echo'<a href="index.php?deco=1" class="deco">Déconnection</a> <br><br><br><a href="sup.php" class="deco">Suprimé Compte</a> <br><br><br> <a href="article.php" class="deco">Voir vos articles </a>';
     }
     else{
         header('Location: index.php');

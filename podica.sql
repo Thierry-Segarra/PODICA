@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 23 sep. 2022 à 16:03
+-- Généré le : ven. 23 sep. 2022 à 16:53
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 7.4.29
 
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `article` (
   `id` int(3) NOT NULL,
-  `catégorie` varchar(40) NOT NULL,
+  `categorie` varchar(40) NOT NULL,
   `titre` varchar(128) NOT NULL,
   `descriptif` varchar(256) NOT NULL,
   `contenu` varchar(256) NOT NULL,
-  `illustration` varchar(256) NOT NULL
+  `illustration` varchar(256) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -61,15 +61,15 @@ CREATE TABLE `lien` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `multimédia`
+-- Structure de la table `multimedia`
 --
 
-CREATE TABLE `multimédia` (
+CREATE TABLE `multimedia` (
   `id` int(3) NOT NULL,
   `nom` varchar(128) NOT NULL,
   `type` varchar(128) NOT NULL,
   `id_user` int(3) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -106,7 +106,8 @@ INSERT INTO `user` (`id`, `email`, `motDePasse`, `role`, `pseudo`) VALUES
 (2, 'pute@gmail.com', '151cda9b5a6893a1eeafde996', '', 'pute'),
 (3, 'mst@com', '061bbb63afc4d9bc16788f7c3', '', 'mst'),
 (4, 'TESTF@gmail.com', '5689354bcae35a5d5e3a36ea1', '', 'testF'),
-(5, 'TESTF2@gmail.com', '7c9e7b3182be05564447f4435', '', 'testf2');
+(5, 'TESTF2@gmail.com', '7c9e7b3182be05564447f4435', '', 'testf2'),
+(6, 'deku@gmail.com', 'f61694965180d06e682f0ec6a3b5e659', '', 'deku');
 
 --
 -- Index pour les tables déchargées
@@ -131,9 +132,9 @@ ALTER TABLE `lien`
   ADD PRIMARY KEY (`id_article`);
 
 --
--- Index pour la table `multimédia`
+-- Index pour la table `multimedia`
 --
-ALTER TABLE `multimédia`
+ALTER TABLE `multimedia`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -165,9 +166,9 @@ ALTER TABLE `categorie`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `multimédia`
+-- AUTO_INCREMENT pour la table `multimedia`
 --
-ALTER TABLE `multimédia`
+ALTER TABLE `multimedia`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
 
 --
@@ -180,7 +181,7 @@ ALTER TABLE `sous_categorie`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

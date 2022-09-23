@@ -12,7 +12,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
     
     if($username !== "" && $password !== "")
     {
-      $pwd_peppered = hash_hmac("md5", $password, $username);
+      $pwd_peppered = hash_hmac("md5", $password, 7);
 
       $requete = "SELECT count(*) FROM user where pseudo = '".$username."' and motDePasse = '".$pwd_peppered."' ";
       $exec_requete = mysqli_query($db,$requete);
