@@ -38,7 +38,7 @@
                     }
                 }
                 ?>
-                <p class="Inscriptiontext">Déjà un compte</p>
+                <p class="Inscriptiontext">Déjà un compte ?</p>
                 
                 <a class="s" href = "index.php">S'identifier</a>
                 

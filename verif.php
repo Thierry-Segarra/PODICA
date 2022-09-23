@@ -11,7 +11,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
     $password = mysqli_real_escape_string($db,htmlspecialchars($_POST['password']));
     $email = mysqli_real_escape_string($db,htmlspecialchars($_POST['email']));
     
-    if($username !== "" && $password !== "")
+    if($username !== "" && $password !== "" && $email !== "")
     {
       $conf = $username; // change pour chaque nom_utilisateur
       $pwd_peppered = hash_hmac("md5", $password, 7);

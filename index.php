@@ -27,7 +27,7 @@
                         echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
                     }
                     if($err==3){
-                        echo "<p style='color:green'>Connectez-vous</p>";
+                        echo "<p style='color:green'>Inscription résussie !</p>";
                     }
 
                 }
@@ -40,14 +40,14 @@
                         $_SESSION = array();
                         
                         session_destroy(); 
-                        echo "<p style='color:green'>Vous êtes deconnecté</p>";
+                        echo "<center><p style='color:green'>Vous êtes deconnecté</p></center>";
                     }
                 }
                 if(isset($_GET['sup'])){
                     echo "<p style='color:red'>Compte Supprimé</p>";
                 }
                 ?>
-                <p class="Inscriptiontext">Si vous n'avez pas de Compte</p>
+                <p class="Inscriptiontext">Vous n'avez pas de Compte ?</p>
                 <a class="s" href="inscription.php" >Incrivez-vous</a>
                 
             </form>
