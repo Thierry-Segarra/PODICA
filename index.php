@@ -16,9 +16,6 @@
                 <label><b>Mot de passe</b></label>
                 <input type="password" placeholder="Entrer le mot de passe" name="password" required>
 
-                <label><b>Email</b></label>
-                <input type="email" placeholder="Entrer votre email" name="email" required>
-
                 <input type="submit" id='submit' value="S'IDENTIFIER" >
                 <?php
                 if(isset($_GET['erreur'])){
@@ -27,7 +24,7 @@
                         echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
                     }
                     if($err==3){
-                        echo "<p style='color:green'>Inscription résussie !</p>";
+                        echo "<center><p style='color:green'>Inscription résussie !</p></center>";
                     }
 
                 }

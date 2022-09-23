@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_POST['username']) && isset($_POST['password'])&& isset($_POST['passwordConf']))
+if(isset($_POST['username']) && isset($_POST['password'])&& isset($_POST['passwordConf']) && isset($_POST['email']))
 {
     // connexion à la base de données
     include('connect.php');
@@ -12,7 +12,7 @@ if(isset($_POST['username']) && isset($_POST['password'])&& isset($_POST['passwo
     $passwordConf = mysqli_real_escape_string($db,htmlspecialchars($_POST['passwordConf']));
     $email = mysqli_real_escape_string($db,htmlspecialchars($_POST['email']));
     
-    if($username !== "" && $password !== "" && $passwordConf !== "")
+    if($username !== "" && $password !== "" && $passwordConf !== "" && $email !=="")
     {
         if(strcmp($password,$passwordConf) == 0){
             

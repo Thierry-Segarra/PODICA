@@ -9,7 +9,6 @@ if(isset($_POST['username']) && isset($_POST['password']))
     // pour éliminer toute attaque de type injection SQL et XSS
     $username = mysqli_real_escape_string($db,htmlspecialchars($_POST['username']));
     $password = mysqli_real_escape_string($db,htmlspecialchars($_POST['password']));
-    $email = mysqli_real_escape_string($db,htmlspecialchars($_POST['email']));
     
     if($username !== "" && $password !== "" && $email !== "")
     {
@@ -17,7 +16,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
       $pwd_peppered = hash_hmac("md5", $password, 7);
 
       $requete = "SELECT count(*) FROM user where 
-         pseudo = '".$username."' and motDePasse = '".$pwd_peppered."' and email = '".$email."' ";
+         pseudo = '".$username."' and motDePasse = '".$pwd_peppered."' ";
       $exec_requete = mysqli_query($db,$requete);
       $reponse      = mysqli_fetch_array($exec_requete);
       $count = $reponse['count(*)'];
