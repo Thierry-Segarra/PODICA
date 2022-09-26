@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 23 sep. 2022 à 16:53
+-- Généré le : lun. 26 sep. 2022 à 14:37
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 7.4.29
 
@@ -28,13 +28,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `article` (
-  `id` int(3) NOT NULL,
-  `categorie` varchar(40) NOT NULL,
-  `titre` varchar(128) NOT NULL,
-  `descriptif` varchar(256) NOT NULL,
-  `contenu` varchar(256) NOT NULL,
-  `illustration` varchar(256) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id_article` int(11) NOT NULL,
+  `id_categorie` int(11) NOT NULL,
+  `titre` varchar(25) NOT NULL,
+  `description` varchar(125) NOT NULL,
+  `contenue` varchar(256) NOT NULL,
+  `illustration` varchar(100) DEFAULT NULL,
+  `id_user` int(11) NOT NULL,
+  `date_publication` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -43,20 +45,33 @@ CREATE TABLE `article` (
 --
 
 CREATE TABLE `categorie` (
-  `id` int(3) NOT NULL,
-  `nom` varchar(128) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id_categorie` int(11) NOT NULL,
+  `nom` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `categorie`
+--
+
+INSERT INTO `categorie` (`id_categorie`, `nom`) VALUES
+(1, 'Loisirs'),
+(2, 'Progammation'),
+(3, 'Outils professionnel'),
+(4, 'High-Tech');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `lien`
+-- Structure de la table `commentaire`
 --
 
-CREATE TABLE `lien` (
-  `id_article` int(3) NOT NULL,
-  `id_sous_cat` int(3) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `commentaire` (
+  `id_commentaire` int(11) NOT NULL,
+  `pseudo_user` varchar(50) NOT NULL,
+  `contenue_com` varchar(50) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_article` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -65,10 +80,10 @@ CREATE TABLE `lien` (
 --
 
 CREATE TABLE `multimedia` (
-  `id` int(3) NOT NULL,
-  `nom` varchar(128) NOT NULL,
-  `type` varchar(128) NOT NULL,
-  `id_user` int(3) NOT NULL
+  `id_multimedia` int(11) NOT NULL,
+  `nom` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -78,10 +93,29 @@ CREATE TABLE `multimedia` (
 --
 
 CREATE TABLE `sous_categorie` (
-  `id_sous_cat` int(3) NOT NULL,
-  `id_cat` int(3) NOT NULL,
-  `nom` varchar(128) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id_sous_categorie` int(11) NOT NULL,
+  `nom` varchar(50) NOT NULL,
+  `id_cat` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `sous_categorie`
+--
+
+INSERT INTO `sous_categorie` (`id_sous_categorie`, `nom`, `id_cat`) VALUES
+(1, 'Esport', 1),
+(2, 'Jeux-Video', 1),
+(3, 'Sport', 1),
+(4, 'Python', 2),
+(5, 'Java', 2),
+(6, 'Php', 2),
+(7, 'Html', 2),
+(8, 'Javascript', 2),
+(9, 'Excell', 3),
+(10, 'Photoshop', 3),
+(11, 'Indesign', 3),
+(12, 'Hardware', 4),
+(13, 'Software', 4);
 
 -- --------------------------------------------------------
 
@@ -90,24 +124,20 @@ CREATE TABLE `sous_categorie` (
 --
 
 CREATE TABLE `user` (
-  `id` int(3) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `motDePasse` varchar(100) NOT NULL,
-  `role` varchar(20) NOT NULL,
-  `pseudo` varchar(21) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id_user` int(11) NOT NULL,
+  `pseudo` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `mdp` varchar(100) NOT NULL,
+  `role` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `motDePasse`, `role`, `pseudo`) VALUES
-(1, '', '061bbb63afc4d9bc16788f7c3', '', 'test'),
-(2, 'pute@gmail.com', '151cda9b5a6893a1eeafde996', '', 'pute'),
-(3, 'mst@com', '061bbb63afc4d9bc16788f7c3', '', 'mst'),
-(4, 'TESTF@gmail.com', '5689354bcae35a5d5e3a36ea1', '', 'testF'),
-(5, 'TESTF2@gmail.com', '7c9e7b3182be05564447f4435', '', 'testf2'),
-(6, 'deku@gmail.com', 'f61694965180d06e682f0ec6a3b5e659', '', 'deku');
+INSERT INTO `user` (`id_user`, `pseudo`, `email`, `mdp`, `role`) VALUES
+(2, 'testr', 'testr@gmail.com', '061bbb63afc4d9bc16788f7c3', NULL),
+(3, 'deku', 'deku@gmail.com', '4349e96a7cbd961ae3bdafec7', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -117,37 +147,37 @@ INSERT INTO `user` (`id`, `email`, `motDePasse`, `role`, `pseudo`) VALUES
 -- Index pour la table `article`
 --
 ALTER TABLE `article`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_article`);
 
 --
 -- Index pour la table `categorie`
 --
 ALTER TABLE `categorie`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_categorie`);
 
 --
--- Index pour la table `lien`
+-- Index pour la table `commentaire`
 --
-ALTER TABLE `lien`
-  ADD PRIMARY KEY (`id_article`);
+ALTER TABLE `commentaire`
+  ADD PRIMARY KEY (`id_commentaire`);
 
 --
 -- Index pour la table `multimedia`
 --
 ALTER TABLE `multimedia`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_multimedia`);
 
 --
 -- Index pour la table `sous_categorie`
 --
 ALTER TABLE `sous_categorie`
-  ADD PRIMARY KEY (`id_sous_cat`);
+  ADD PRIMARY KEY (`id_sous_categorie`);
 
 --
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -157,31 +187,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_article` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `commentaire`
+--
+ALTER TABLE `commentaire`
+  MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `multimedia`
 --
 ALTER TABLE `multimedia`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_multimedia` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `sous_categorie`
 --
 ALTER TABLE `sous_categorie`
-  MODIFY `id_sous_cat` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sous_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
