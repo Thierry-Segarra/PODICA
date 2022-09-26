@@ -23,7 +23,7 @@ if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['descripti
         if($reponse['id_user'] == $_SESSION['id']) // !=0 si le nom_utilisateur et deja utiliser | == 0 si le nom_utilisateur n'est pas utiliser
         {   
             echo $titre.'<br>'.$contenu.'<br>'.$categorie.'<br>'.$description.'<br>'.$_SESSION['id'].'<br>'.$_POST['id'].'<br>';
-            $requete = "UPDATE `article` SET categorie= '".$categorie."', titre = '".$titre."', descriptif = '".$description."', contenu = '".$contenu."' WHERE id = ".$_POST['id']." and id_user = ".$_SESSION['id'].""; // id auto-increase
+            $requete = "UPDATE `article` SET id_categorie= '".$categorie."', titre = '".$titre."', description = '".$description."', contenue = '".$contenu."' WHERE id_article = ".$_POST['id']." and id_user = ".$_SESSION['id'].""; // id auto-increase
             $requete = mysqli_query($db,$requete) or die("Foobar2");// doit normalement executer la requete SQL
             if($requete){
                 header('Location: ../acceuil.php');

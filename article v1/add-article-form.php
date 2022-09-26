@@ -23,8 +23,7 @@ if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['descripti
 
         if($count==0) // !=0 si le nom_utilisateur et deja utiliser | == 0 si le nom_utilisateur n'est pas utiliser
         {   
-
-            $requete = "INSERT INTO `article`(`categorie`,`titre`, `descriptif`,`contenu`,`id_user`) VALUES ('".$categorie."','".$titre."','".$description."','".$contenu."',".$_SESSION['id'].")"; // id auto-increase
+            $requete = "INSERT INTO `article`(`id_categorie`,`titre`, `description`,`contenue`,`id_user`,`date_publication`) VALUES ('".$categorie."','".$titre."','".$description."','".$contenu."',".$_SESSION['id'].", NOW())"; // id auto-increase
             $requete = mysqli_query($db,$requete) or die("Foobar2");// doit normalement executer la requete SQL
             if($requete){
                 header('Location: ../acceuil.php');

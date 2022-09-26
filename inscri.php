@@ -25,7 +25,7 @@ if(isset($_POST['username']) && isset($_POST['password'])&& isset($_POST['passwo
             {   
                 $pwd_peppered = hash_hmac("md5", $password, 7); // sha256 mieux que md5 mais c'est pour le test
 
-                $requete = "INSERT INTO `user`(`pseudo`, `motDePasse`, `email`) VALUES ('".$username."','".$pwd_peppered."','".$email."')"; // id auto-increase
+                $requete = "INSERT INTO `user`(`pseudo`, `mdp`, `email`) VALUES ('".$username."','".$pwd_peppered."','".$email."')"; // id auto-increase
                 $requete = mysqli_query($db,$requete) or die("Foobar");// doit normalement executer la requete SQL
                 if($requete){
                     header('Location: index.php?erreur=3');

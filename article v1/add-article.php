@@ -28,7 +28,18 @@
                 <label><b>Catégorie</b></label>
                 <br>
                 <select name="categorie" id="categorie" form="article">
-                    <option value="null">aucune</option>
+                    <?php
+                    include('../connect.php');
+                    $requete = "SELECT * FROM categorie";
+                    $exec_requete = mysqli_query($db,$requete) or die("Foobar");
+
+                    while($row = mysqli_fetch_assoc($exec_requete)){
+        
+                        echo'<option value="' . $row["id_categorie"] . '">' . $row["nom"] . '</option>';
+                        
+                    };
+                    ?>
+                    
                 </select>
                 <br>
 
