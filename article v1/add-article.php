@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Codec</title>
-        <link rel="stylesheet" href="loginstyle.css">
+        <link rel="stylesheet" href="../loginstyle.css">
     </head>
     <body>
         <div id="container">            
