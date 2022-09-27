@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 27 sep. 2022 à 10:16
+-- Généré le : mar. 27 sep. 2022 à 11:07
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -99,26 +99,27 @@ CREATE TABLE `signaler` (
   `motif` varchar(100) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_article` int(11) NOT NULL,
-  `id_commentaire` int(11) NOT NULL
+  `id_commentaire` int(11) NOT NULL,
+  `id_type` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `sous_categorie`
+-- Structure de la table `sous-categorie`
 --
 
-CREATE TABLE `sous_categorie` (
+CREATE TABLE `sous-categorie` (
   `id_sous_categorie` int(11) NOT NULL,
   `nom` varchar(50) NOT NULL,
   `id_cat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `sous_categorie`
+-- Déchargement des données de la table `sous-categorie`
 --
 
-INSERT INTO `sous_categorie` (`id_sous_categorie`, `nom`, `id_cat`) VALUES
+INSERT INTO `sous-categorie` (`id_sous_categorie`, `nom`, `id_cat`) VALUES
 (1, 'Esport', 1),
 (2, 'Jeux-Video', 1),
 (3, 'Sport', 1),
@@ -132,6 +133,17 @@ INSERT INTO `sous_categorie` (`id_sous_categorie`, `nom`, `id_cat`) VALUES
 (11, 'Indesign', 3),
 (12, 'Hardware', 4),
 (13, 'Software', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `type-signaler`
+--
+
+CREATE TABLE `type-signaler` (
+  `id_type` int(11) NOT NULL,
+  `libelle` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -191,10 +203,16 @@ ALTER TABLE `signaler`
   ADD PRIMARY KEY (`id_signal`);
 
 --
--- Index pour la table `sous_categorie`
+-- Index pour la table `sous-categorie`
 --
-ALTER TABLE `sous_categorie`
+ALTER TABLE `sous-categorie`
   ADD PRIMARY KEY (`id_sous_categorie`);
+
+--
+-- Index pour la table `type-signaler`
+--
+ALTER TABLE `type-signaler`
+  ADD PRIMARY KEY (`id_type`);
 
 --
 -- Index pour la table `user`
@@ -237,10 +255,16 @@ ALTER TABLE `signaler`
   MODIFY `id_signal` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `sous_categorie`
+-- AUTO_INCREMENT pour la table `sous-categorie`
 --
-ALTER TABLE `sous_categorie`
+ALTER TABLE `sous-categorie`
   MODIFY `id_sous_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT pour la table `type-signaler`
+--
+ALTER TABLE `type-signaler`
+  MODIFY `id_type` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `user`
