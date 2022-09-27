@@ -3,9 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
+<<<<<<< Updated upstream
 -- Généré le : mar. 27 sep. 2022 à 08:58
 -- Version du serveur :  10.4.14-MariaDB
 -- Version de PHP : 7.4.11
+=======
+-- Généré le : mar. 27 sep. 2022 à 10:05
+-- Version du serveur : 10.4.24-MariaDB
+-- Version de PHP : 8.1.6
+>>>>>>> Stashed changes
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,6 +41,7 @@ CREATE TABLE `article` (
   `contenue` varchar(256) NOT NULL,
   `illustration` varchar(100) DEFAULT NULL,
   `id_user` int(11) NOT NULL,
+<<<<<<< Updated upstream
   `date_publication` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -46,6 +53,11 @@ INSERT INTO `article` (`id_article`, `id_categorie`, `titre`, `description`, `co
 (1, 1, 'titre', 'description', 'contenue\r\n', NULL, 1, '2022-09-26'),
 (2, 3, 'test zartcile', '&quot;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, ea', '&quot;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia vo', NULL, 1, '2022-09-26'),
 (3, 4, 'titre2522522', 'teetzet', 'etztzetzetz', NULL, 1, '2022-09-26');
+=======
+  `date_publication` date NOT NULL DEFAULT current_timestamp(),
+  `nb_signalement` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
@@ -93,6 +105,24 @@ CREATE TABLE `multimedia` (
   `nom` varchar(50) NOT NULL,
   `type` varchar(50) NOT NULL,
   `id_user` int(11) NOT NULL
+<<<<<<< Updated upstream
+=======
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `signaler`
+--
+
+CREATE TABLE `signaler` (
+  `id_signal` int(11) NOT NULL,
+  `detail` varchar(100) DEFAULT NULL,
+  `motif` varchar(100) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_article` int(11) NOT NULL,
+  `id_commentaire` int(11) NOT NULL
+>>>>>>> Stashed changes
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -145,7 +175,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `pseudo`, `email`, `mdp`, `role`) VALUES
+<<<<<<< Updated upstream
 (1, 'mast', 'mast@com', '061bbb63afc4d9bc16788f7c3da76562', NULL);
+=======
+(2, 'testr', 'testr@gmail.com', '061bbb63afc4d9bc16788f7c3', NULL),
+(3, 'deku', 'deku@gmail.com', '4349e96a7cbd961ae3bdafec7', NULL),
+(5, 'erwan', 'erwanbauer.pro@gmail.com', '061bbb63afc4d9bc16788f7c3da76562', NULL);
+>>>>>>> Stashed changes
 
 --
 -- Index pour les tables déchargées
@@ -174,6 +210,15 @@ ALTER TABLE `commentaire`
 --
 ALTER TABLE `multimedia`
   ADD PRIMARY KEY (`id_multimedia`);
+<<<<<<< Updated upstream
+=======
+
+--
+-- Index pour la table `signaler`
+--
+ALTER TABLE `signaler`
+  ADD PRIMARY KEY (`id_signal`);
+>>>>>>> Stashed changes
 
 --
 -- Index pour la table `sous_categorie`
@@ -195,7 +240,11 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
+<<<<<<< Updated upstream
   MODIFY `id_article` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+=======
+  MODIFY `id_article` int(11) NOT NULL AUTO_INCREMENT;
+>>>>>>> Stashed changes
 
 --
 -- AUTO_INCREMENT pour la table `categorie`
@@ -214,6 +263,15 @@ ALTER TABLE `commentaire`
 --
 ALTER TABLE `multimedia`
   MODIFY `id_multimedia` int(11) NOT NULL AUTO_INCREMENT;
+<<<<<<< Updated upstream
+=======
+
+--
+-- AUTO_INCREMENT pour la table `signaler`
+--
+ALTER TABLE `signaler`
+  MODIFY `id_signal` int(11) NOT NULL AUTO_INCREMENT;
+>>>>>>> Stashed changes
 
 --
 -- AUTO_INCREMENT pour la table `sous_categorie`
@@ -225,7 +283,11 @@ ALTER TABLE `sous_categorie`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
+<<<<<<< Updated upstream
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+=======
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> Stashed changes
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
