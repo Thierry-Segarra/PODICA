@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 28 sep. 2022 à 10:23
+-- Généré le : mer. 28 sep. 2022 à 16:38
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -36,7 +36,8 @@ CREATE TABLE `article` (
   `illustration` varchar(100) DEFAULT NULL,
   `id_user` int(11) NOT NULL,
   `date_publication` date NOT NULL DEFAULT current_timestamp(),
-  `nb_signalement` int(11) DEFAULT NULL
+  `nb_signalement` int(11) DEFAULT NULL,
+  `id_sous_categorie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
