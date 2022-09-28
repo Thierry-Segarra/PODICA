@@ -17,6 +17,6 @@ $reponse = mysqli_fetch_array($exec_requete);
 
 
 ?>
-<a href="popup.php?id-article=<?php echo $_GET['id'] ?>">signaler</a>
+<a href="signale.php?id-article=<?php echo $_GET['id'] ?>">signaler</a>
 
 </html>
