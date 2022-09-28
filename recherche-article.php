@@ -36,19 +36,25 @@ if(isset($_POST['categorie'])||isset($_GET['categorie'])){
         $categorie = $_GET['categorie'];}
 
         $recherche = $_POST['rechercher'];
-        if($categorie == 0){$requete="SELECT * from article where titre LIKE '%".$recherche."%'";}
-        else{$requete="SELECT * from article where id_categorie =".$categorie." and  titre LIKE '%".$recherche."%'";}
+        if($categorie == 0){
+            $requete="Select id_article, titre, C.nom, description, contenue from article A INNER JOIN categorie C ON A.id_categorie = C.id_categorie where titre LIKE '%".$recherche."%'";
+
+        }
+        else{
+                    $requete="Select id_article, titre, C.nom, description, contenue from article A INNER JOIN categorie C ON A.id_categorie = C.id_categorie where A.id_categorie =".$categorie." and  titre LIKE '%".$recherche."%'";
+        }
         
         $exec_requete2 = mysqli_query($db,$requete);
 
 
     while($row = mysqli_fetch_assoc($exec_requete2)){
-        
-        echo'<div class="">
-       <span> Titre : ' . $row["titre"] . '</span><br>
-       <span> Descriptif : ' . $row["description"] . '</span><br>
-       <span> Categorie : ' . $row["id_categorie"] . '</span><br>
-       </div><br><br><br><br><br>';
+
+       echo'<div style="border: solid black 2px">
+       <a href="afficher-article.php?id=' . $row["id_article"] . '">Titre : ' . $row["titre"] . '</a>
+       <p>Catégorie : ' . $row["nom"] . '</p>
+       <p>Descrisption : ' . $row["description"] . '</p>
+       <p>Contenu: ' . $row["contenue"] . '</p>
+       </div><br><br>';
         
     };
 
