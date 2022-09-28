@@ -22,12 +22,22 @@ if(isset($_POST['username']) && isset($_POST['password']))
       $requete2 = "SELECT * FROM user where pseudo = '".$username."' and mdp = '".$pwd_peppered."' ";
       $exec_requete2 = mysqli_query($db,$requete2);
       $reponse2      = mysqli_fetch_array($exec_requete2);
+      print_r($reponse2);
 
       if($count!=0) // nom d'utilisateur et mot de passe correctes
       {   
          $_SESSION['username'] = $username;
          $_SESSION['id'] = $reponse2['id_user'];
+
+
+         if($reponse2['role'] == 'admin'){
+            $_SESSION['role'] = 'admin';
             header('Location: acceuil.php');
+         }else{
+            $_SESSION['role'] = 'null';
+            header('Location: acceuil.php');
+         }
+            
       }
       else
       {

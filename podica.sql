@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 27 sep. 2022 à 08:58
--- Version du serveur :  10.4.14-MariaDB
--- Version de PHP : 7.4.11
+-- Généré le : mer. 28 sep. 2022 à 10:23
+-- Version du serveur : 10.4.24-MariaDB
+-- Version de PHP : 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,17 +35,9 @@ CREATE TABLE `article` (
   `contenue` varchar(256) NOT NULL,
   `illustration` varchar(100) DEFAULT NULL,
   `id_user` int(11) NOT NULL,
-  `date_publication` date NOT NULL
+  `date_publication` date NOT NULL DEFAULT current_timestamp(),
+  `nb_signalement` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `article`
---
-
-INSERT INTO `article` (`id_article`, `id_categorie`, `titre`, `description`, `contenue`, `illustration`, `id_user`, `date_publication`) VALUES
-(1, 1, 'titre', 'description', 'contenue\r\n', NULL, 1, '2022-09-26'),
-(2, 3, 'test zartcile', '&quot;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, ea', '&quot;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia vo', NULL, 1, '2022-09-26'),
-(3, 4, 'titre2522522', 'teetzet', 'etztzetzetz', NULL, 1, '2022-09-26');
 
 -- --------------------------------------------------------
 
@@ -79,7 +71,8 @@ CREATE TABLE `commentaire` (
   `pseudo_user` varchar(50) NOT NULL,
   `contenue_com` varchar(50) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_article` int(11) NOT NULL
+  `id_article` int(11) NOT NULL,
+  `date_publication` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -98,20 +91,36 @@ CREATE TABLE `multimedia` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `sous_categorie`
+-- Structure de la table `signaler`
 --
 
-CREATE TABLE `sous_categorie` (
+CREATE TABLE `signaler` (
+  `id_signal` int(11) NOT NULL,
+  `detail` varchar(100) DEFAULT NULL,
+  `motif` varchar(100) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_article` int(11) NOT NULL,
+  `id_commentaire` int(11) NOT NULL,
+  `id_type` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `sous-categorie`
+--
+
+CREATE TABLE `sous-categorie` (
   `id_sous_categorie` int(11) NOT NULL,
   `nom` varchar(50) NOT NULL,
   `id_cat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `sous_categorie`
+-- Déchargement des données de la table `sous-categorie`
 --
 
-INSERT INTO `sous_categorie` (`id_sous_categorie`, `nom`, `id_cat`) VALUES
+INSERT INTO `sous-categorie` (`id_sous_categorie`, `nom`, `id_cat`) VALUES
 (1, 'Esport', 1),
 (2, 'Jeux-Video', 1),
 (3, 'Sport', 1),
@@ -125,6 +134,17 @@ INSERT INTO `sous_categorie` (`id_sous_categorie`, `nom`, `id_cat`) VALUES
 (11, 'Indesign', 3),
 (12, 'Hardware', 4),
 (13, 'Software', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `type-signaler`
+--
+
+CREATE TABLE `type-signaler` (
+  `id_type` int(11) NOT NULL,
+  `libelle` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -145,7 +165,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `pseudo`, `email`, `mdp`, `role`) VALUES
-(1, 'mast', 'mast@com', '061bbb63afc4d9bc16788f7c3da76562', NULL);
+(1, 'podicadmin', 'podica.pro@gmail.com', 'bea9598d4a8f5171e44db194c2568c89', 'admin'),
+(8, 'test', 'visiteurtest@gmail.com', '061bbb63afc4d9bc16788f7c3da76562', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -176,10 +197,22 @@ ALTER TABLE `multimedia`
   ADD PRIMARY KEY (`id_multimedia`);
 
 --
--- Index pour la table `sous_categorie`
+-- Index pour la table `signaler`
 --
-ALTER TABLE `sous_categorie`
+ALTER TABLE `signaler`
+  ADD PRIMARY KEY (`id_signal`);
+
+--
+-- Index pour la table `sous-categorie`
+--
+ALTER TABLE `sous-categorie`
   ADD PRIMARY KEY (`id_sous_categorie`);
+
+--
+-- Index pour la table `type-signaler`
+--
+ALTER TABLE `type-signaler`
+  ADD PRIMARY KEY (`id_type`);
 
 --
 -- Index pour la table `user`
@@ -195,7 +228,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id_article` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_article` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `categorie`
@@ -216,16 +249,28 @@ ALTER TABLE `multimedia`
   MODIFY `id_multimedia` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `sous_categorie`
+-- AUTO_INCREMENT pour la table `signaler`
 --
-ALTER TABLE `sous_categorie`
+ALTER TABLE `signaler`
+  MODIFY `id_signal` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `sous-categorie`
+--
+ALTER TABLE `sous-categorie`
   MODIFY `id_sous_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT pour la table `type-signaler`
+--
+ALTER TABLE `type-signaler`
+  MODIFY `id_type` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

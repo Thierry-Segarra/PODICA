@@ -11,11 +11,17 @@
     if($_SESSION['username'] != ""){
         $nom = $_SESSION['username'];
             echo '<p class="titre">Hello '. $nom .'</p>';
-        echo'<a href="index.php?deco=1" class="deco">Déconnection</a> <br><br><br><a href="sup.php" class="deco">Suprimer Compte</a> <br><br><br> <a href="article.php" class="deco">Voir vos articles </a>';
+        echo'<a href="index.php?deco=1" class="deco">Déconnection</a> <br><br><br><a href="sup.php" class="deco">Suprimer Compte</a> <br><br><br> <a href="liste-article.php" class="deco">Voir vos articles </a><br> <a href="parametre-compte.php" class="deco">parametre compte </a>';
+    
+        if($_SESSION['role'] == 'admin'){
+            echo 'hello my men<br>';
+        }
     }
     else{
         header('Location: index.php');
     }
+
+    
     ?>
 </body>
 </html>
