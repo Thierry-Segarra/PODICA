@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 27 sep. 2022 à 11:07
+-- Généré le : mer. 28 sep. 2022 à 09:03
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -164,9 +164,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `pseudo`, `email`, `mdp`, `role`) VALUES
-(2, 'testr', 'testr@gmail.com', '061bbb63afc4d9bc16788f7c3', NULL),
-(3, 'deku', 'deku@gmail.com', '4349e96a7cbd961ae3bdafec7', NULL),
-(5, 'erwan', 'erwanbauer.pro@gmail.com', '061bbb63afc4d9bc16788f7c3da76562', NULL);
+(1, 'podicadmin', 'podica.pro@gmail.com', 'bea9598d4a8f5171e44db194c2568c89', 'admin'),
+(2, 'test', 'visiteurtest@gmail.com', '061bbb63afc4d9bc16788f7c3da76562', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -270,7 +269,7 @@ ALTER TABLE `type-signaler`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
