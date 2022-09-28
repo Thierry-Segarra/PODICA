@@ -4,6 +4,7 @@
 
          //include('connect.php');
         $motif = '';
+        $detail = '';
         echo $_POST['article'];
         $id_article = $_POST['article'];
         echo '<br><br><br><br><br>';
@@ -44,16 +45,11 @@
         if(!empty($_POST['other']))
         {
          
-      
+        $detail =  $_POST['detail'];
         $motif = $motif .','. $_POST['other'];
 
         }
-        echo $motif;
-    
-
-        $requete = "INSERT INTO `signaler`(`motif`,`id_user`,`id_article`) VALUES ('".$motif."','".$_SESSION['id']."','".$id_article."')"; 
-        $exec_requete = mysqli_query($db,$requete);
-
+        
         $requete2 = " SELECT nb_signalement FROM article WHERE id_article = '".$id_article."'";
         $exec_requete2= mysqli_query($db,$requete2);
         $reponse = mysqli_fetch_array($exec_requete2);
@@ -62,9 +58,28 @@
         echo '<br><br><br><br>';
         echo $nb_signale;
 
+        echo $motif;
         $requete3 = " UPDATE `article` SET nb_signalement = '".$nb_signale."' WHERE id_article = '".$id_article."'";
         $exec_requete3= mysqli_query($db,$requete3);
+        
+        $lock = 0;
+        if($detail == ''){
+            $requete = "INSERT INTO `signaler`(`motif`,`id_user`,`id_article`) VALUES ('".$motif."','".$_SESSION['id']."','".$id_article."')"; 
+            $exec_requete = mysqli_query($db,$requete);
+            header('Location: acceuil.php');
 
+            
+
+        }else{
+            $requete = "INSERT INTO `signaler`(`motif`,`id_user`,`id_article`,`detail`) VALUES ('".$motif."','".$_SESSION['id']."','".$id_article."','".$detail."')"; 
+            $exec_requete = mysqli_query($db,$requete);
+            header('Location: acceuil.php');
+
+            
+
+        }
+
+        
 
 
 ?>
