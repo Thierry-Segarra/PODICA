@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['description']) && isset($_POST['categorie']))
+if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['description']) && isset($_POST['categorie']) && isset($_POST['sous-categorie']))
 {
     // connexion à la base de données
     include('../connect.php');
@@ -11,9 +11,10 @@ if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['descripti
     $contenu = mysqli_real_escape_string($db,htmlspecialchars($_POST['contenu']));
     $description = mysqli_real_escape_string($db,htmlspecialchars($_POST['description']));
     $categorie = mysqli_real_escape_string($db,htmlspecialchars($_POST['categorie']));
+    $sous_categorie = mysqli_real_escape_string($db,htmlspecialchars($_POST['sous-categorie']));
     
-    echo $titre.'<br>'.$contenu.'<br>'.$categorie.'<br>'.$description.'<br>'.$_SESSION['id'].'<br>';
-    if($titre !== "" && $contenu !== "" && $description !== "" && $categorie !== "")
+    echo $titre.'<br>'.$contenu.'<br>'.$categorie.'<br>'.$description.'<br>'.$_SESSION['id'].'<br>'.$sous_categorie.'<br>';
+    if($titre !== "" && $contenu !== "" && $description !== "" && $categorie !== "aucun" && $sous_categorie !== "aucun")
     {
             
         $requete = "SELECT count(titre) FROM article where titre = '".$titre."'";
@@ -23,24 +24,24 @@ if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['descripti
 
         if($count==0) // !=0 si le nom_utilisateur et deja utiliser | == 0 si le nom_utilisateur n'est pas utiliser
         {   
-            $requete = "INSERT INTO `article`(`id_categorie`,`titre`, `description`,`contenue`,`id_user`,`date_publication`) VALUES ('".$categorie."','".$titre."','".$description."','".$contenu."',".$_SESSION['id'].", NOW())"; // id auto-increase
+            $requete = "INSERT INTO `article`(`id_categorie`,`id_sous_categorie`,`titre`, `description`,`contenue`,`id_user`,`date_publication`) VALUES ('".$categorie."','".$sous_categorie."','".$titre."','".$description."','".$contenu."',".$_SESSION['id'].", NOW())"; // id auto-increase
             $requete = mysqli_query($db,$requete) or die("Foobar2");// doit normalement executer la requete SQL
             if($requete){
                 header('Location: ../acceuil.php');
             }
             else
             {
-                header('Location: ../inscription.php?erreur=3');
+                header('Location: add-article.php?erreur=3');
             }
         }
         else
         {
-            header('Location: ../inscription.php?erreur=1');// nom d'utilisateur et deja inscrit
+            header('Location: add-article.php?erreur=1');// nom d'utilisateur et deja inscrit
         }
     }
     else
     {
-       header('Location: ../inscription.php?erreur=2'); // utilisateur ou mot de passe vide
+    header('Location: add-article.php?erreur=3'); // utilisateur ou mot de passe vide
     }
 }
 else

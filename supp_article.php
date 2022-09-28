@@ -18,7 +18,7 @@ if(isset($_GET['id']) and !empty($_GET['id'])){
 
         $info_utilisateur = $reponse2;
         print_r($info_utilisateur);
-        if($info_utilisateur['id_user'] == $_SESSION['id']){
+        if($info_utilisateur['id_user'] == $_SESSION['id'] || $info_utilisateur['role'] == 'admin'){
 
             $supparticle="delete from article where id_article =".$_GET['id']." ";
             $exec_requete1 = mysqli_query($db,$supparticle);

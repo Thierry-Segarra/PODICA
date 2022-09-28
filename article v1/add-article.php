@@ -27,7 +27,9 @@
                 
                 <label><b>Catégorie</b></label>
                 <br>
-                <select name="categorie" id="categorie" form="article">
+                <select name="categorie" id="categorie" form="article" onchange="traitement()">
+                <option selected>aucun</option>
+
                     <?php
                     include('../connect.php');
                     $requete = "SELECT * FROM categorie";
@@ -41,6 +43,56 @@
                     ?>
                     
                 </select>
+                <br><br>
+                <label><b>Sous-Catégorie</b></label>
+                <br>
+                
+                <select name="sous-categorie" id="sous-categorie" form="article">
+                <option id='aucun_sous_cat' value="aucun" selected>aucun</option>
+                <?php
+                    include('../connect.php');
+                    $requete = "SELECT * FROM `sous-categorie`";
+                    $exec_requete = mysqli_query($db,$requete) or die("Foobar");
+                    
+                    while($row = mysqli_fetch_assoc($exec_requete)){
+                        
+                        echo'<option value="' . $row["id_sous_categorie"] . '" id="cat_' . $row["id_sous_categorie"].$row["id_cat"] . '" style="display:none">' . $row["nom"] . '</option>';
+                        
+                    };
+                    ?>
+                    
+                </select>
+
+
+                <script>
+                    function traitement(){
+                        var liste, texte;
+                        liste = document.getElementById("categorie");
+                        texte = liste.options[liste.selectedIndex].value;
+
+                        document.getElementById("sous-categorie").selectedIndex = "aucun";
+
+                        let i = 1;
+                        while(i <= 13){
+                            
+                            if(document.getElementById("cat_"+i+texte)){
+                                document.getElementById("cat_"+i+texte).style.display='contents';
+                            }else{
+                                let a = 1;
+                                while(a <= 4){
+                                    if(a != texte){
+                                        if(document.getElementById("cat_"+i+a)){
+                                            document.getElementById("cat_"+i+a).style.display='none';
+                                        }
+                                    }
+                                    a++;
+                                }
+                            }
+                            i++;
+                        };
+                    }
+                </script>
+
                 <br>
 
                 <input type="submit" id='submit' value="POSTER" >
