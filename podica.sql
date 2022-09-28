@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 28 sep. 2022 à 09:03
+-- Généré le : mer. 28 sep. 2022 à 10:23
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -71,7 +71,8 @@ CREATE TABLE `commentaire` (
   `pseudo_user` varchar(50) NOT NULL,
   `contenue_com` varchar(50) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_article` int(11) NOT NULL
+  `id_article` int(11) NOT NULL,
+  `date_publication` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -165,7 +166,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `pseudo`, `email`, `mdp`, `role`) VALUES
 (1, 'podicadmin', 'podica.pro@gmail.com', 'bea9598d4a8f5171e44db194c2568c89', 'admin'),
-(2, 'test', 'visiteurtest@gmail.com', '061bbb63afc4d9bc16788f7c3da76562', NULL);
+(8, 'test', 'visiteurtest@gmail.com', '061bbb63afc4d9bc16788f7c3da76562', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -269,7 +270,7 @@ ALTER TABLE `type-signaler`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
