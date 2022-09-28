@@ -3,8 +3,7 @@ session_start();
 
 require('connect.php');
 
-
-if(isset($_GET['id']) and !empty($_GET['id'])){
+if(isset($_GET['id'])){
 
     $requete= "select count(*) from commentaire where id_commentaire =".$_GET['id']."";
     $exec_requete1 = mysqli_query($db,$requete);
@@ -18,13 +17,12 @@ if(isset($_GET['id']) and !empty($_GET['id'])){
     if($count !=  0){
 
         $info_utilisateur = $reponse2;
-        print_r($info_utilisateur);
         if($info_utilisateur['id_user'] == $_SESSION['id']){
 
             $suppcom="delete from commentaire where id_commentaire =".$_GET['id']." ";
             $exec_requete1 = mysqli_query($db,$suppcom);
 
-            header('Location: liste-mes-articles.php');
+            header('Location: afficher-article.php?id='.$_GET['id_article']);
 
         }else{
             echo "Vous n'êtes pas autorisé à supprimer un commentaire qui ne vous appartient pas !";

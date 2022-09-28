@@ -29,8 +29,12 @@
 
 <?php
 
-if(isset($_POST['categorie'])){
+if(isset($_POST['categorie'])||isset($_GET['categorie'])){
+    if(isset($_POST['categorie'])){
         $categorie = $_POST['categorie'];
+    }else if(isset($_GET['categorie'])){
+        $categorie = $_GET['categorie'];}
+
         $recherche = $_POST['rechercher'];
         if($categorie == 0){$requete="SELECT * from article where titre LIKE '%".$recherche."%'";}
         else{$requete="SELECT * from article where id_categorie =".$categorie." and  titre LIKE '%".$recherche."%'";}
