@@ -3,10 +3,12 @@
 
 <!--  -->
     <form action="recherche-article.php" id="article" method="POST">
+        <input type="text" id="rechercher" name="rechercher" placeholder="rechercher"></input>
+        <input type="submit" id='submit' value="RECHERCHER" > 
+        <br>
         <label><b>Catégorie</b></label>
         <br>
-        
-        <select name="categorie" id="categorie" form="article">
+        <select name="categorie" id="categorie" form="article" onchange="traitement()">
             <option value="0">Tout</option>
             <?php
             include('connect.php');
@@ -20,28 +22,50 @@
             };
             ?>
             
-        </select>
-        <input type="text" id="rechercher" name="rechercher"></input>
+        </select><br>
+        <label><b>Sous-Catégorie</b></label>
+        <br>
+        <select name="sous-categorie" id="sous-categorie" form="article">
+            <option value="0">Tout</option>
+            <?php
+            $requete2 = "SELECT * FROM `sous-categorie`";
+            $exec_requete2 = mysqli_query($db,$requete2) or die("Foobar2");
 
-        <input type="submit" id='submit' value="RECHERCHER" >              
+            while($row2 = mysqli_fetch_assoc($exec_requete2)){
+                echo'<option value="' . $row2["id_sous_categorie"] . '" id="cat_' . $row2["id_sous_categorie"].$row2["id_cat"] . '" style="display:none">' . $row2["nom"] . '</option>';
+            };
+            ?>
+            
+        </select>
+        <br>
+                     
     </form>
 
 
 <?php
 
-if(isset($_POST['categorie'])||isset($_GET['categorie'])){
+if((isset($_POST['categorie']) && isset($_POST['sous-categorie'])) || (isset($_GET['categorie']) && isset($_GET['sous-categorie']))){
     if(isset($_POST['categorie'])){
         $categorie = $_POST['categorie'];
     }else if(isset($_GET['categorie'])){
-        $categorie = $_GET['categorie'];}
+        $categorie = $_GET['categorie'];
+    }
 
+    if(isset($_POST['sous-categorie'])){
+        $sous_categorie = $_POST['sous-categorie'];
+    }else if(isset($_GET['sous-categorie'])){
+        $sous_categorie = $_GET['sous-categorie'];
+    }
         $recherche = $_POST['rechercher'];
+
         if($categorie == 0){
             $requete="Select id_article, titre, C.nom, description, contenue from article A INNER JOIN categorie C ON A.id_categorie = C.id_categorie where titre LIKE '%".$recherche."%'";
 
         }
-        else{
-                    $requete="Select id_article, titre, C.nom, description, contenue from article A INNER JOIN categorie C ON A.id_categorie = C.id_categorie where A.id_categorie =".$categorie." and  titre LIKE '%".$recherche."%'";
+        else if($sous_categorie != 0){
+            $requete="Select id_article, titre, C.nom, description, contenue from article A INNER JOIN categorie C ON A.id_categorie = C.id_categorie INNER JOIN `sous-categorie` S ON A.id_sous_categorie = S.id_sous_categorie where A.id_categorie =".$categorie." and A.id_sous_categorie =".$sous_categorie." and  titre LIKE '%".$recherche."%'";
+        }else {
+            $requete="Select id_article, titre, C.nom, description, contenue from article A INNER JOIN categorie C ON A.id_categorie = C.id_categorie where A.id_categorie =".$categorie." and  titre LIKE '%".$recherche."%'";
         }
         
         $exec_requete2 = mysqli_query($db,$requete);
@@ -60,5 +84,33 @@ if(isset($_POST['categorie'])||isset($_GET['categorie'])){
 
 };
 ?>
+<script>
+    function traitement(){
+        var liste, texte;
+        liste = document.getElementById("categorie");
+        texte = liste.options[liste.selectedIndex].value;
+
+        document.getElementById("sous-categorie").selectedIndex = 0;
+
+        let i = 1;
+        while(i <= 13){
+            
+            if(document.getElementById("cat_"+i+texte)){
+                document.getElementById("cat_"+i+texte).style.display='contents';
+            }else{
+                let a = 1;
+                while(a <= 4){
+                    if(a != texte){
+                        if(document.getElementById("cat_"+i+a)){
+                            document.getElementById("cat_"+i+a).style.display='none';
+                        }
+                    }
+                    a++;
+                }
+            }
+            i++;
+        };
+    }
+</script>
 
 </html>
