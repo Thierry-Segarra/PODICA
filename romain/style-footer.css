@@ -1,0 +1,108 @@
+.footer{
+    width: 100%;
+    position: relative;
+    height: auto;
+    background-color: #6f686d;
+}
+.footer .row{
+    display: flex;
+    width: 100%;
+}
+.footer .col{
+width: 20%;
+height: auto;
+float: left;
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+padding: 0px 20px 20px 20px;
+}
+.col-image{
+    width: 60%;
+}
+.img-footer{
+    width: 100px;
+    height: 100px ;
+    object-position: top;
+    float: center;
+    margin-right: 100px;
+    margin-left: 20px ;
+    margin-top: 10px;
+}
+
+.footer .col h1 {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 17px;
+    padding: 20px 0px 5px 0px;
+    color: #ffffff;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.250em;
+  }
+  .footer .col ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer .col ul li {
+    color: #cbcbcb;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: bold;
+    padding: 5px 0px 5px 0px;
+    cursor: pointer;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+  }
+
+.col-social{
+width:20%;
+text-align: right;
+}
+
+.col-social h1{
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 17px;
+    padding: 20px 0px 5px 0px;
+    color: #ffffff;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.250em;
+  }
+  .col-social ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+.col-social ul li{
+    color: #cbcbcb;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: bold;
+    padding: 5px 0px 5px 0px;
+    cursor: pointer;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+}
+.col-social ul li:hover{
+    color: #ffffff;
+    transition: .1s;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+    text-decoration: none!important;
+}
+  .footer .col-social ul li:hover {
+    color: #ffffff;
+    transition: .1s;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+  }
