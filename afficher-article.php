@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
     <title>Podica</title>
 </head>
 
@@ -55,7 +57,7 @@ echo '</br></br></br>';
 <?php
 include('commentaire.php')
 ?>
-<a href="signale.php?id-article=<?php echo $_GET['id'] ?>">signaler</a>
+<a class="favorite styled" href="signal.php?id-article=<?php echo $_GET['id'] ?>">signaler</a>
 
 
 </html>

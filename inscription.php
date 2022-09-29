@@ -3,25 +3,36 @@
     <head>
         <meta charset="utf-8">
         <title>Codec</title>
-        <link rel="stylesheet" href="loginstyle.css">
+        <link rel="stylesheet" href="css/loginstyle.css">
     </head>
     <body>
-        <div id="container">            
+        <div class="center">    
+        <h1>Inscription</h1>        
             <form action="inscri.php" method="POST">
-                <h1>Inscription</h1>
                 
-                <label><b>Nom d'utilisateur</b></label>
-                <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" maxlength="13" required>
+                <div class="texte">
+                    <input type="text" name="username" maxlength="13" required>
+                    <span></span>
+                    <label>Nom d'utilisateur</label>
+                </div>
                 
-                <label><b>Choisissez un Mot de passe</b></label>
-                <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+                <div class="texte">
+                    <input type="email" name="email" required>
+                    <span></span>
+                    <label>Email</label>
+                </div>
+                
+                <div class="texte">
+                    <input type="password" name="password" required>
+                    <span></span>
+                    <label>Mot de passe</label>
+                </div>
 
-                <label><b>Confirmez le Mot de passe</b></label>
-                <input type="password" placeholder="Confirmer le mot de passe" name="passwordConf" required>
-
-                <label><b>Email</b></label>
-                <input type="email" placeholder="Entrer votre email" name="email" required>
-
+                <div class="texte">
+                    <input type="password" name="paswordConf" required>
+                    <span></span>
+                    <label>Confirmer mot de passe</label>
+                </div>
 
                 <input type="submit" id='submit' value="INSCRIPTION" >
                 <?php
@@ -38,9 +49,10 @@
                     }
                 }
                 ?>
-                <p class="Inscriptiontext">Déjà un compte ?</p>
-                
-                <a class="s" href = "index.php">S'identifier</a>
+
+                <div class="inscri">
+                    <a href="index.php">Déjà un compte ? S'identifier</a>
+                </div>
                 
             </form>
         </div>

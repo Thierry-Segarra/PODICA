@@ -7,10 +7,13 @@
   nav {
     text-align: center;
     box-shadow: 0 0 4px 0px black;
+    background-color: white;
+
   }
   .menu {
     display: inline-block;
     width: 100%;
+    background-color: white;
   }
   .img-header{
     width: 100px;
@@ -33,6 +36,12 @@
     padding-left: 25px;
     padding-right: 25px;
   }
+
+  .menu >  li > a {
+    text-decoration: none;
+    color: #47A8BD;
+  }
+
   .sub-menu {
     transform: scale(0);
     transform-origin: top center;
@@ -66,6 +75,9 @@
   .menu > li:hover .sub-menu {
     transform: scale(1);
   }
+  .menu > li > .image-profil {
+    width: 50px;
+  }
 /*search bar*/
 #search-form input {
 	width: 150px;
@@ -96,5 +108,7 @@
 	font-size: 13px;
 	font-weight: 600;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
-	color: #fff
+	color: #fff;
+  padding-left:10px;
+  padding-right:10px;  
 }

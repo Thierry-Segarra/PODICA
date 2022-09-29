@@ -66,14 +66,14 @@
         if($detail == ''){
             $requete = "INSERT INTO `signaler`(`motif`,`id_user`,`id_article`) VALUES ('".$motif."','".$_SESSION['id']."','".$id_article."')"; 
             $exec_requete = mysqli_query($db,$requete);
-            header('Location: acceuil.php');
+            header('Location: index.php');
 
             
 
         }else{
             $requete = "INSERT INTO `signaler`(`motif`,`id_user`,`id_article`,`detail`) VALUES ('".$motif."','".$_SESSION['id']."','".$id_article."','".$detail."')"; 
             $exec_requete = mysqli_query($db,$requete);
-            header('Location: acceuil.php');
+            header('Location: index.php');
 
             
 

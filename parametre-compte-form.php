@@ -57,7 +57,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email
             }
         }
         if($lock != 0){
-            header('Location: acceuil.php');
+            header('Location: index.php');
         }
             
         }

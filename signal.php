@@ -2,15 +2,18 @@
 <html>
         <head>
             <meta charset="utf-8">
+            <link rel="stylesheet" href="css/stylesignalement.css" >
             <Title>Signalement</Title>
         </head>
     <body>
         
-    <div style="text-align:center">
+    <!--<div style="text-align:center"><---->
+        <form class="form">
         <form action="signal-form.php" method='POST'>
             <h1>SIGNALER CET ARTICLE</h1>
             <h3>Pourquoi signaler cet article ?</h3>
             <!---Cases a cocher-->
+            
             <p><input type="checkbox" id="violent" value="1" name="violent" onclick="validate()">Contenu violent</p>
             <p><input type="checkbox" id="pron" value="2" name="pron" onclick="validate()">Contenu a caractère pornographique</p>
             <p><input type="checkbox" id="inappro" value="3" name="inappro" onclick="validate()">Contenu innaproprié</p>
@@ -28,8 +31,7 @@
                     //Si une case est cochée alors le bouton confirmer apparait//
                     if(violent.checked == 1 || pron.checked == 1|| inappro.checked == 1|| rel.checked == 1 || poli.checked == 1 || other.checked == 1)
                     {
-                        document.getElementById('config').innerHTML='<input type="submit" name="submit" value="signaler">';
-                       
+                        document.getElementById('config').innerHTML='<input id="button-submit" type="submit" name="submit" value="Signaler">';
                     }
                     else
                     {
@@ -44,10 +46,10 @@
                         document.getElementById('textarea').innerHTML='';
                     }
                 }
-            </script>
+                </script>
             
-            <button onclick="quitter()">Quitter</button>
-
+             <button onclick="'index.php';">Quitter</button>
+            
         </form>
     </div>
     </body>

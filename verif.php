@@ -32,10 +32,10 @@ if(isset($_POST['username']) && isset($_POST['password']))
 
          if($reponse2['role'] == 'admin'){
             $_SESSION['role'] = 'admin';
-            header('Location: acceuil.php');
+            header('Location: index.php');
          }else{
             $_SESSION['role'] = 'null';
-            header('Location: acceuil.php');
+            header('Location: index.php');
          }
             
       }

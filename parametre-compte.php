@@ -48,7 +48,7 @@
                 }
                 ?>
                 
-                <a class="s" href = "acceuil.php">accueil</a>
+                <a class="s" href = "index.php">accueil</a>
                 
             </form>
         </div>

@@ -27,7 +27,7 @@ if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['descripti
             $requete = "INSERT INTO `article`(`id_categorie`,`id_sous_categorie`,`titre`, `description`,`contenue`,`id_user`,`date_publication`) VALUES ('".$categorie."','".$sous_categorie."','".$titre."','".$description."','".$contenu."',".$_SESSION['id'].", NOW())"; // id auto-increase
             $requete = mysqli_query($db,$requete) or die("Foobar2");// doit normalement executer la requete SQL
             if($requete){
-                header('Location: ../acceuil.php');
+                header('Location: ../index.php');
             }
             else
             {

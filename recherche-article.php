@@ -43,20 +43,28 @@
 
 
 <?php
-
-if((isset($_POST['categorie']) && isset($_POST['sous-categorie'])) || (isset($_GET['categorie']) && isset($_GET['sous-categorie']))){
+if((isset($_POST['categorie']) && isset($_POST['sous-categorie'])) || (isset($_GET['id_categorie']) && isset($_GET['id_sous_categorie']))){
     if(isset($_POST['categorie'])){
         $categorie = $_POST['categorie'];
-    }else if(isset($_GET['categorie'])){
-        $categorie = $_GET['categorie'];
+    }else if(isset($_GET['id_categorie'])){
+        $categorie = $_GET['id_categorie'];
     }
 
-    if(isset($_POST['sous-categorie'])){
-        $sous_categorie = $_POST['sous-categorie'];
-    }else if(isset($_GET['sous-categorie'])){
-        $sous_categorie = $_GET['sous-categorie'];
+
+    if(isset($_POST['id_sous_categorie'])){
+        $sous_categorie = $_POST['id_sous_categorie'];
+    }else if(isset($_GET['id_sous_categorie'])){
+        $sous_categorie = $_GET['id_sous_categorie'];
     }
+
+
+    if(isset($_POST['rechercher'])){
         $recherche = $_POST['rechercher'];
+    }else{
+        $recherche = '';
+        
+    }
+        
 
         if($categorie == 0){
             $requete="Select id_article, titre, C.nom, description, contenue from article A INNER JOIN categorie C ON A.id_categorie = C.id_categorie where titre LIKE '%".$recherche."%'";
