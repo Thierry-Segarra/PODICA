@@ -2,21 +2,35 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>Codec</title>
+        <title>Connexion</title>
         <link rel="stylesheet" href="loginstyle.css">
     </head>
     <body>
-        <div id="container">            
-            <form action="verif.php" method="POST">
-                <h1>Connectez-vous</h1>
-                
-                <label><b>Nom d'utilisateur</b></label>
-                <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
 
-                <label><b>Mot de passe</b></label>
-                <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+        <div class="center">
+            <h1>Connectez-vous</h1>
+            <form action="verif.php" method="post">
 
-                <input type="submit" id='submit' value="S'IDENTIFIER" >
+                <div class="texte">
+                    <input type="text" name="username" required>
+                    <span></span>
+                    <label>Nom d'utilisateur / E-mail</label>
+                </div>
+
+                <div class="texte">
+                    <input type="password" name="password" required>
+                    <span></span>
+                    <label>Mot de passe</label>
+                </div>
+
+
+                <input type="submit" id='submit' value="Se connecter">
+
+                <div class="inscri">
+                    <a href="inscription.php">Pas de compte ? Inscrivez-vous !</a>
+                </div>
+
+
                 <?php
                 if(isset($_GET['erreur'])){
                     $err = $_GET['erreur'];
@@ -44,10 +58,11 @@
                     echo "<p style='color:red'>Compte Supprimé</p>";
                 }
                 ?>
-                <p class="Inscriptiontext">Vous n'avez pas de Compte ?</p>
-                <a class="s" href="inscription.php" >Incrivez-vous</a>
+
                 
             </form>
+
         </div>
+
     </body>
 </html>
