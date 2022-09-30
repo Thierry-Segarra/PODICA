@@ -14,7 +14,7 @@
         </header>
         <div class="center">    
         <h1>Création d'article</h1>        
-            <form action="add-article-form.php" method="POST">
+            <form action="add-article-form.php" name='article' id='article' method="POST">
                 
                 <div class="texte">
                     <input type="text" name="titre" maxlength="128" required>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+echo $_POST['titre'].'<br>'.$_POST['contenu'].'<br>'.$_POST['description'].'<br>'.$_POST['categorie'].'<br>'.$_POST['sous-categorie'].'<br>';
 if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['description']) && isset($_POST['categorie']) && isset($_POST['sous-categorie']))
 {
     // connexion à la base de données
@@ -46,7 +47,7 @@ if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['descripti
 }
 else
 {
-   header('Location: inscription.php');
+   //header('Location: add-article.php');
 }
 mysqli_close($db); // fermer la connexion
 ?>

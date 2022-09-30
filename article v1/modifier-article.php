@@ -23,7 +23,7 @@
         </header>
         <div class="center">    
         <h1>Modification d'article</h1>        
-            <form action="modifier-article-form.php" method="POST">
+            <form action="modifier-article-form.php"  name='article' id='article' method="POST">
             <input style="display: none" type="text" name="id" value='<?php echo $_GET['id'] ?>' required>
                 <div class="texte">
                     <input type="text" name="titre" maxlength="128" value='<?php echo $reponse["titre"] ?>' required>
