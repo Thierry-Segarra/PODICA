@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <link rel="stylesheet" href="css/style-header.css">
+  <link rel="stylesheet" href="./css/style-header.css">
 </head>
   <body>
    <nav>
@@ -55,7 +55,7 @@
               <img class="image-profil" src="image/pp.jpg" alt="image profil">
               <ul class="sub-menu">
               <?php
-                if($_SESSION['role'] != ""){
+                if($_SESSION['role'] !== 'null'){
               ?>
                 <li><a href="admin/index.php">Notif</a></li>
               <?php
@@ -63,7 +63,7 @@
               ?>
                 <li><a href="liste-mes-articles.php">Vos articles</a></li>
                 <li><a href="parametre-compte.php">Paramètres</a></li>
-                <li><a href="index.php?deco=1">Deconnection</a></li>
+                <li><a href="deco.php?deco=1">Deconnection</a></li>
             </ul>
             <?php
             }
@@ -73,7 +73,7 @@
             <?php
           }
           ?>
-        </li>    
+        </li>   
       </ul>
     </nav>
   </body>

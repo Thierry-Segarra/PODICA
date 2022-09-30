@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if(isset($_POST['username']) && isset($_POST['password'])&& isset($_POST['passwordConf']) && isset($_POST['email']))
 {
     // connexion à la base de données
@@ -28,7 +29,7 @@ if(isset($_POST['username']) && isset($_POST['password'])&& isset($_POST['passwo
                 $requete = "INSERT INTO `user`(`pseudo`, `mdp`, `email`) VALUES ('".$username."','".$pwd_peppered."','".$email."')"; // id auto-increase
                 $requete = mysqli_query($db,$requete) or die("Foobar");// doit normalement executer la requete SQL
                 if($requete){
-                    header('Location: index.php?erreur=3');
+                    header('Location: connection.php?erreur=3');
                 }
                 else
                 {
@@ -52,7 +53,7 @@ if(isset($_POST['username']) && isset($_POST['password'])&& isset($_POST['passwo
 }
 else
 {
-   header('Location: inscription.php');
+  //header('Location: inscription.php?test');
 }
 mysqli_close($db); // fermer la connexion
 ?>

@@ -6,6 +6,11 @@
         <link rel="stylesheet" href="css/loginstyle.css">
     </head>
     <body>
+    <header>
+            <?php
+            include('header.php');
+            ?>
+        </header>
         <div class="center">    
         <h1>Inscription</h1>        
             <form action="inscri.php" method="POST">
@@ -29,7 +34,7 @@
                 </div>
 
                 <div class="texte">
-                    <input type="password" name="paswordConf" required>
+                    <input type="password" name="passwordConf" required>
                     <span></span>
                     <label>Confirmer mot de passe</label>
                 </div>
@@ -51,7 +56,7 @@
                 ?>
 
                 <div class="inscri">
-                    <a href="index.php">Déjà un compte ? S'identifier</a>
+                    <a href="connection.php">Déjà un compte ? S'identifier</a>
                 </div>
                 
             </form>

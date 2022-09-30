@@ -3,11 +3,15 @@
     <head>
         <meta charset="utf-8">
         <title>Codec</title>
-        <link rel="stylesheet" href="loginstyle.css">
+        <link rel="stylesheet" href="css/loginstyle.css">
     </head>
     <body>
+        <header>
+            <?php
+            include('header.php');
+            ?>
+        </header>
     <?php
-        session_start();
         include('connect.php');
         $id_user = $_SESSION['id'];
 
@@ -15,19 +19,28 @@
         $exec_requete = mysqli_query($db,$requete);
         $reponse      = mysqli_fetch_array($exec_requete);
         ?>
-        <div id="container">            
+        <div class="center">    
+        <h1>Paramètres du compte</h1>      
             <form action="parametre-compte-form.php" method="POST">
-                <h1>Paramètres du compte</h1>
                 
-                <label><b>Changer le Nom d'utilisateur</b></label>
-                <input type="text" placeholder="Entrer le nouveau nom d'utilisateur" name="username" maxlength="13" >
+                <div class="texte">
+                    <input type="text" name="username" maxlength="13" required>
+                    <span></span>
+                    <label>Changer le Nom d'utilisateur</label>
+                </div>
                 
-                <label><b>Changer l'Email</b></label>
-                <input type="email" placeholder="Entrer le nouvelle email" name="email">
+                <div class="texte">
+                    <input type="email" name="email" required>
+                    <span></span>
+                    <label>Changer l'Email</label>
+                </div>
+                
+                <div class="texte">
+                    <input type="password" name="password" required>
+                    <span></span>
+                    <label>Mot de passe actuel</label>
 
-                <label><b>Mot de passe actuel</b></label>
-                <input type="password" placeholder="Entrer le mot de passe actuel" name="password" required>
-
+                </div>
 
                 <input type="submit" id='submit' value="Mettre à jour le compte" >
                 <?php
@@ -47,8 +60,10 @@
                     }
                 }
                 ?>
-                
-                <a class="s" href = "index.php">accueil</a>
+
+                <div class="inscri">
+                <a href = "index.php">Retour acceuil</a>
+                </div>
                 
             </form>
         </div>

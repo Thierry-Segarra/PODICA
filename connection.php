@@ -6,6 +6,11 @@
         <link rel="stylesheet" href="css/loginstyle.css">
     </head>
     <body>
+    <header>
+            <?php
+            include('header.php');
+            ?>
+        </header>
 
         <div class="center">
             <h1>Connectez-vous</h1>
@@ -43,16 +48,7 @@
 
                 }
                 if(isset($_GET['deco'])){
-                    $deco = $_GET['deco'];
-                    if($deco==1){
-                        session_start();
-                        $_SESSION['id'] = "";
-                        $_SESSION['username'] = "";
-                        $_SESSION = array();
-                        
-                        session_destroy(); 
-                        echo "<center><p style='color:green'>Vous êtes deconnecté</p></center>";
-                    }
+                    
                 }
                 if(isset($_GET['sup'])){
                     echo "<p style='color:red'>Compte Supprimé</p>";

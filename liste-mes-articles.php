@@ -2,8 +2,11 @@
 <html lang="fr">
 <meta charset="UTF-8">
 
+
+<a href="article v1/add-article.php"><input type="button" name="add_article" value="Ajouter un nouveau article"/></a><br><br>
 <?php
 session_start();
+
 
 require('connect.php');
 
@@ -19,8 +22,11 @@ require('connect.php');
          <span> Date de publication: ' . $row["date_publication"] . '</span> 
          </div><br>';
          ?>
-            <input type="button" name="affiche_article" value="Afficher l'article"/>
-            <input type="button" name="modif_article" value="Modifier l'article"/>
+            
+            <a href="afficher-article.php?id=<?php echo $row["id_article"] ?>"><input type="button" name="affiche_article" value="Afficher l'article"/></a>
+            <a href="article v1/modifier-article.php?id=<?php echo $row["id_article"] ?>"><input type="button" name="modif_article" value="Modifier l'article"/></a>
+
+            
             <a href="supp_article.php?id=<?php echo $row['id_article']?>" ><input type="button" name="supp_article" value="Supprimer l'article"/></a>
      </br></br></br></br>
          <?php

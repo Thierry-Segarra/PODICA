@@ -6,10 +6,14 @@
             <Title>Signalement</Title>
         </head>
     <body>
+    <header>
+            <?php
+            include('header.php');
+            ?>
+        </header>
         
     <!--<div style="text-align:center"><---->
-        <form class="form">
-        <form action="signal-form.php" method='POST'>
+        <form class="form" action="signal-form.php" method='POST'>
             <h1>SIGNALER CET ARTICLE</h1>
             <h3>Pourquoi signaler cet article ?</h3>
             <!---Cases a cocher-->
@@ -31,7 +35,7 @@
                     //Si une case est cochée alors le bouton confirmer apparait//
                     if(violent.checked == 1 || pron.checked == 1|| inappro.checked == 1|| rel.checked == 1 || poli.checked == 1 || other.checked == 1)
                     {
-                        document.getElementById('config').innerHTML='<input id="button-submit" type="submit" name="submit" value="Signaler">';
+                        document.getElementById('config').innerHTML='<input id="button-submit-signal" type="submit" name="submit" value="Signaler">';
                     }
                     else
                     {
@@ -48,7 +52,7 @@
                 }
                 </script>
             
-             <button onclick="'index.php';">Quitter</button>
+             <a id="button-quitter" href="afficher-article.php?id=<?php echo $_GET['id-article'] ?>">Quitter</a>
             
         </form>
     </div>

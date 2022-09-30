@@ -1,14 +1,17 @@
-* {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    box-sizing: border-box;
-  }
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
   nav {
     text-align: center;
     box-shadow: 0 0 4px 0px black;
     background-color: white;
     position: sticky; top: 0;
+
   }
   .menu {
     display: inline-block;
