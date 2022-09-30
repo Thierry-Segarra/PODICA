@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <link rel="stylesheet" href="style-footer.css">
+  <link rel="stylesheet" href="css/style-footer.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
                         </ul>
                     </div>
                     <div class="col-center">
-                    <img class="img-footer" src="../image/Podica_logo.png">
+                    <img class="img-footer" src="image/Podica_logo.png">
                    </div>                   
                     <div class="col-right">
                          <h1>Nos réseaux sociaux</h1>
