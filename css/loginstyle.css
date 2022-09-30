@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: montserrat;
-    background: linear-gradient( #6495ED, #F0FFFF);
+    background: linear-gradient( #47a8bd, #FFFFFF);
     height: 100vh;
     overflow: hidden;
 }
@@ -61,13 +61,13 @@ form .texte{
     left: 0;
     width: 100%;
     height: 2px;
-    background: #2691d9;
+    background: #47a8bd;
 }
 
 .texte input:focus ~ label,
 .texte input:valid ~ label{
     top: -5px;
-    color: #2691d9;
+    color: #47a8bd;
 }
 
 .texte input:focus ~ span::before,
@@ -89,7 +89,7 @@ input[type="submit"]{
     width: 100%;
     height: 50px;
     border: 1px solid;
-    background: #2691d9;
+    background: #47a8bd;
     border-radius: 10px;
     font-size: 18px;
     color: #e9f4fb;
@@ -99,7 +99,7 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover{
-    border-color: #2691d9;
+    border-color: #47a8bd;
     transition: .5s;
 }
 
@@ -111,7 +111,7 @@ input[type="submit"]:hover{
 }
 
 .inscri a{
-    color: #2691d9;
+    color: #47a8bd;
     text-decoration: none;
 }
 
