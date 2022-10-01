@@ -33,16 +33,16 @@ if($count!=0){
         echo'
             <div class="article">
             <div class="row-td">
-       <a class="titre" href="afficher-article.php?id=' . $row["id_article"] . '">' . $row["titre"]. '</a>
-       <p>' . $row["date_publication"] . '</p></div>
+       <a class="titre" href="afficher-article.php?id=' . $row["id_article"] . '">Titre : ' . $row["titre"]. '</a>
+       <p> Date : ' . $row["date_publication"] . '</p></div>
        
        <div class="row-desc">
-       <p>' . $row["description"] . '</p>
+       <p>Descrisption : ' . $row["description"] . '</p>
        </div>
 
        <div class="row-ncat">
-            <p>' . $row["nom"] . '</p>
-            <p>' . $row["pseudo"] . '</p>
+            <p>Catégorie : ' . $row["nom"] . '</p>
+            <p>Auteur: ' . $row["pseudo"] . '</p>
        </div>
        </div>';
         

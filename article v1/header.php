@@ -6,8 +6,7 @@
   <body>
    <nav>
     <ul class="menu">
-      <a href="../index.php">
-    <img alt="test" class="img-header" src="../image/Podica_logo.png"> </a>
+    <a href="../index.php?duck"><img alt="logo" class="img-header" src="../image/Podica_logo.png"></a>
         <li>
           <a href="../recherche-article.php?id_categorie=1&id_sous_categorie=0">Loisir</a>
           <ul class="sub-menu">

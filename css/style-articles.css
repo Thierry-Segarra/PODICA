@@ -1,3 +1,11 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    background: linear-gradient( #47a8bd, #FFFFFF);
+    height: 100vh;
+    background-repeat: no-repeat;
+}
 .row-bienvenue{
     width: 100%;
     background-image: url("../image/article-wp.jpeg");
@@ -14,7 +22,6 @@
 }
 .wrapper-article{
     width: auto;
-    height: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
@@ -27,6 +34,8 @@
     margin-top: 50px;
     margin-bottom: 50px;
     box-shadow: 2px 2px 5px 0px black;
+    background-color: white;
+
 }
 
 .wrapper-article .article .row-td{

@@ -6,8 +6,7 @@
   <body>
    <nav>
     <ul class="menu">
-      <a href="index.php">
-    <img alt="test" class="img-header" src="image/Podica_logo.png"> </a>
+      <a href="index.php?duck"><img alt="logo" class="img-header" src="image/Podica_logo.png"></a>
         <li>
           <a href="recherche-article.php?id_categorie=1&id_sous_categorie=0">Loisir</a>
           <ul class="sub-menu">
@@ -46,6 +45,7 @@
 </li>
         <li style="float:right ; padding-right:25px">
           <?php
+          
           session_start();
           if(isset($_SESSION['username'])){
             if($_SESSION['username'] != ""){
@@ -70,6 +70,24 @@
           }else{
             ?>
             <a href="connection.php">S'inscrire / se connecter</a>
+            <?php
+          }
+          ?>
+          <?php
+          if(isset($_GET['duck'])){
+            ?>
+            <audio id="duck">
+            <source src="duck.ogg" type="audio/ogg" />
+            </audio>
+            <script>
+            
+            function duck(){
+            var audio = document.getElementById('duck');
+            audio.volume = 0.5; // on met le son au maximum
+            audio.play(); // on lance le son
+            }
+            duck();
+            </script>
             <?php
           }
           ?>
