@@ -5,7 +5,9 @@
 </head>
 <body>
 <header>
-<?php include('../article v1/header.php')?>
+<?php 
+session_start();
+include('../article v1/header.php')?>
 </header>
 
 <div class="wrapper-article">
