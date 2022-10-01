@@ -41,7 +41,7 @@
           </ul>
         </li>
       <li>
-      <a style="margin-left:5vw" id='button-submit' href="recherche-article.php">Recherche</a>
+      <a style="margin-left:5vw" id='button-submit' href="../recherche-article.php">Recherche</a>
 </li>
         <li style="float:right ; padding-right:25px">
           <?php
