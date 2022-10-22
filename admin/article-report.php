@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+    <head>
+        <title>Article reporté</title>
+        <link rel="stylesheet" href="../css/style-artreport.css">
+
+    <body>
 <?php
 $id_article = $_GET['id_article'];
 include('../connect.php');
@@ -8,8 +13,11 @@ include('../connect.php');
 $requete = "SELECT * from signaler where id_article=".$id_article."";
 $exec_requete = mysqli_query($db, $requete);
 
-echo '<a href="../afficher-article.php?id=' . $id_article . '"> lien article</a>';
+?>
 
+<?php echo '<button href="../afficher-article.php?id=' . $id_article . '"> Lien article</button><br>'?>
+
+<?php
 while($row = mysqli_fetch_assoc($exec_requete)){
     $requete2 = "SELECT pseudo from user where id_user=".$row["id_user"]."";
     $exec_requete2 = mysqli_query($db, $requete2);
@@ -39,25 +47,32 @@ while($row = mysqli_fetch_assoc($exec_requete)){
     }
     $liste_motif = $liste_motif . '</ul>';
     
-    echo'<div style="border: solid black 2px">
+    echo'<br><div style="width: 100%;
+    height: 100;
+    border: 1px solid;
+    background: #ffffff;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #78788c;
+    font-weight: 700;
+    outline: none
+    border-color:#47a8bd
+    font-family:montserrat;">
     
     <table>
       <tr>
-        <th>Utiliseur</th>
-        <th>Motif</th>
-        <th>Detail</th>
+        <u>Utiliseur : ' . $reponse2["pseudo"] . '<br><br>
+        Motif : '.$liste_motif.'
+        Details :</u> '.$row['detail'].'
       </tr>
-      <tr>
-        <td>' . $reponse2["pseudo"] . '</td>
-        <td>'.$liste_motif.'</td>
-        <td>'.$row['detail'].'</td>
-      </tr>
+
     </table>
-    </div><br><br>';
+    </div><br>';
     
 };
 
 
 ?>
 
+</body>
 </html>
