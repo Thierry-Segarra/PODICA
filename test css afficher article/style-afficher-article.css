@@ -9,61 +9,90 @@ body{
 .article{
     vertical-align:middle ;
     width: 60%;
-    Height: 500px;
+    Height: fit-content;
     margin-top: 50px;
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 2px 2px 5px 0px black;
     background-color: white;
+    border-radius: 50;
 }
-.row-pres{
+.row-top{
     width: 100%;
     height: 60px;
-    background-color: #6f686d;
-    text-align: left;
-    color: white;
+    background-color: white;
+    color: black;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
 }
+
+.block-cat{
+    float:left;
+    width:75%;
+}
+
+.block-date-aut{
+    float:left; 
+    width:80%; 
+    text-align:right;
+}
+
+
 .row-contenu{
     width: 100%;
     height: 70%;
-    background-color: #a7a7a7;
-    text-align: left;
-    color: black;
-}
-.row-dateps{
-    width: 100%;
-    height: auto;
     background-color: white;
     text-align: left;
     color: black;
+    padding-left: 20px;
+    display: flex;
 }
 
+.block-contenu{
+    float:left;
+    width:85%;
+}
 
-.commentaire{
+.com{
     vertical-align:middle ;
     width: 60%;
-    Height: 500px;
+    Height: fit-content;
     margin-top: 50px;
     margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+
+}
+
+.commentaire-art{
+    vertical-align:middle ;
+    width: 80%;
+    Height: fit-content ;
+    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 2px 2px 5px 0px black;
     background-color: white;
 }
 .pseudo-commentaire{
+    display: flex;
     width: 100%;
-    height: 60px;
-    background-color: #6f686d;
-    text-align: left;
-    color: white;
-}
-.contenu-commentaire{
-    width: 100%;
-    height: 70%;
-    background-color: #a7a7a7;
+    height: 40px;
+    background-color: white;
     text-align: left;
     color: black;
+}
+.contenu-commentaire{
+    display: flex;
+    width: 100%;
+    height: 70%;
+    background-color: white;
+    text-align: left;
+    color: black;
+    padding-left: 10px; 
+    padding-top: 10px;
 }
 .btn-signaler{
     text-align: center;
