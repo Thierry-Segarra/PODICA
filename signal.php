@@ -9,10 +9,10 @@
     <header>
             <?php
             include('header.php');
+            if(isset($_SESSION['id'])){
             ?>
         </header>
-        
-    <!--<div style="text-align:center"><---->
+      
         <form class="form" action="signal-form.php" method='POST'>
             <h1>SIGNALER CET ARTICLE</h1>
             <h3>Pourquoi signaler cet article ?</h3>
@@ -55,6 +55,8 @@
              <a id="button-quitter" href="afficher-article.php?id=<?php echo $_GET['id-article'] ?>">Quitter</a>
             
         </form>
-    </div>
+        <?php }else{
+            header('Location: connection.php'); // utilisateur ou mot de passe vide
+        }; ?>
     </body>
 </html>
