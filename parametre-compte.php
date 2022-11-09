@@ -8,11 +8,11 @@
     <body>
         <header>
             <?php
-            include('header.php');
+            include('module/header.php');
             ?>
         </header>
     <?php
-        include('connect.php');
+        include('Fonction_PHP_JS/connect.php');
         $id_user = $_SESSION['id'];
 
         $requete = "SELECT * FROM user where id_user = ".$id_user."";
@@ -21,7 +21,7 @@
         ?>
         <div class="center">    
         <h1>Paramètres du compte</h1>      
-            <form action="parametre-compte-form.php" method="POST">
+            <form action="Fonction_PHP_JS/parametre-compte-form.php" method="POST">
                 
                 <div class="texte">
                     <input type="text" name="username" maxlength="13" >

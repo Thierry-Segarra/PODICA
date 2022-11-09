@@ -57,24 +57,24 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email
             }
         }
         if($lock != 0){
-            header('Location: index.php');
+            header('Location: ../index.php');
         }
             
         }
         else
         {
-           header('Location: parametre-compte.php?erreur=3'); // utilisateur ou mot de passe incorrect
+           header('Location: ../parametre-compte.php?erreur=3'); // utilisateur ou mot de passe incorrect
         }
     }
     else
     {
-       header('Location:parametre-compte.php?erreur=4'); // utilisateur ou mot de passe vide
+       header('Location: ../parametre-compte.php?erreur=4'); // utilisateur ou mot de passe vide
     }
     
 }
 else
 {
-   header('Location: parametre-compte.php');
+   header('Location: ../parametre-compte.php');
 }
 mysqli_close($db); // fermer la connexion
 ?>

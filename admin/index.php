@@ -7,12 +7,12 @@
 <header>
 <?php 
 session_start();
-include('../article v1/header.php')?>
+include('../article/module/header.php')?>
 </header>
 
 <div class="wrapper-article">
 <?php
-include('../connect.php');
+include('../Fonction_PHP_JS/connect.php');
 
 $requete = "SELECT count(*) from article where nb_signalement >=10";
 $exec_requete = mysqli_query($db, $requete);
@@ -45,7 +45,7 @@ if($count!=0){
             <p>Auteur: ' . $row["pseudo"] . '</p>
             <a href="article-report.php?id_article=' . $row['id_article'] .'"> Voir les signalements</a>
 
-       <a href="../supp_article.php?id=' . $row['id_article'] .'"> Suprimer article</a>
+       <a href="../Fonction_PHP_JS/supp_article.php?id=' . $row['id_article'] .'"> Suprimer article</a>
        </div>
        </div>';
         

@@ -9,7 +9,7 @@
         
 <?php
 $id_article = $_GET['id_article'];
-include('../connect.php');
+include('../Fonction_PHP_JS/connect.php');
 
 $requete = "SELECT * from signaler where id_article=".$id_article."";
 $exec_requete = mysqli_query($db, $requete);

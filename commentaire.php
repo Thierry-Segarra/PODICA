@@ -1,4 +1,4 @@
-       <form method="POST" action='envoie_com.php' class="form-com">
+       <form method="POST" action='Fonction_PHP_JS/envoie_com.php' class="form-com">
             <div class="commentaire">
              <div class="titre">
                 <label> Poster un commentaire</label><br>

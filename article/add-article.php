@@ -6,38 +6,27 @@
         <link rel="stylesheet" href="../css/loginstyle.css">
     </head>
     <body>
-    <?php
-        session_start();
-        include('../connect.php');
-        $id = $_GET['id'];
-        $id_user = $_SESSION['id'];
-
-        $requete = "SELECT * FROM article where id_article = ".$id." AND id_user = ".$id_user."";
-        $exec_requete = mysqli_query($db,$requete);
-        $reponse      = mysqli_fetch_array($exec_requete);
-        ?>
     <header>
             <?php
-            include('header.php');
+            session_start();
+            include('module/header.php');
             ?>
         </header>
         <div class="center">    
-        <h1>Modification d'article</h1>        
-            <form action="modifier-article-form.php"  name='article' id='article' method="POST">
-            <input style="display: none" type="text" name="id" value='<?php echo $_GET['id'] ?>' required>
+        <h1>Création d'article</h1>        
+            <form action="add-article-form.php" name='article' id='article' method="POST">
+                
                 <div class="texte">
-                    <input type="text" name="titre" maxlength="128" value='<?php echo $reponse["titre"] ?>' required>
+                    <input type="text" name="titre" maxlength="128" required>
                     <span></span>
                     <label>Titre de votre article</label>
                 </div>
                 <div class="texte">
-                    <textarea class='areatext' id="description" name="description"  placeholder="Description"><?php echo $reponse["description"] ?></textarea>
-                    <span></span>
+                    <textarea class='textarea_add' id="description" rows="6"name="description"  placeholder="Description"></textarea>
                 </div>
 
                 <div class="texte">
-                    <textarea class='areatext' id="contenu" name="contenu" placeholder="Contenu"><?php echo $reponse["contenue"] ?></textarea>
-                    <span></span>
+                    <textarea class='textarea_add' id="contenu" rows="6" name="contenu" placeholder="Contenu"></textarea>
                 </div>
                 
                 <div class="texte">
@@ -45,61 +34,48 @@
                     <option selected>Catégorie</option>
 
                         <?php
-                        include('../connect.php');
+                        include('../Fonction_PHP_JS/connect.php');
                         $requete = "SELECT * FROM categorie";
                         $exec_requete = mysqli_query($db,$requete) or die("Foobar");
 
                         while($row = mysqli_fetch_assoc($exec_requete)){
-                            if($reponse["id_categorie"] == $row["id_categorie"]){
-                            echo'<option value="' . $row["id_categorie"] . '" selected>' . $row["nom"] . '</option>';
-    
-                            }else{
-                                echo'<option value="' . $row["id_categorie"] . '">' . $row["nom"] . '</option>';
-                            }
+            
+                            echo'<option value="' . $row["id_categorie"] . '">' . $row["nom"] . '</option>';
                             
                         };
                         ?>
                         
                     </select>
-                    <span></span>
                 </div>
 
                 <div class="texte">
                     <select name="sous-categorie" id="sous-categorie" form="article">
                     <option id='aucun_sous_cat' value="aucun" selected>Sous-Catégorie</option>
                     <?php
-                        include('../connect.php');
+                        include('../Fonction_PHP_JS/connect.php');
                         $requete = "SELECT * FROM `sous-categorie`";
                         $exec_requete = mysqli_query($db,$requete) or die("Foobar");
                         
                         while($row = mysqli_fetch_assoc($exec_requete)){
-                            if($reponse["id_sous_categorie"] == $row["id_sous_categorie"]){
-                                echo'<option value="' . $row["id_sous_categorie"] . '" id="cat_' . $row["id_sous_categorie"].$row["id_cat"] . '" style="display:contents" selected>' . $row["nom"] . '</option>';
-        
-                            }else{
-                                echo'<option value="' . $row["id_sous_categorie"] . '" id="cat_' . $row["id_sous_categorie"].$row["id_cat"] . '" style="display:none">' . $row["nom"] . '</option>';
-                            }
+                            
+                            echo'<option value="' . $row["id_sous_categorie"] . '" id="cat_' . $row["id_sous_categorie"].$row["id_cat"] . '" style="display:none">' . $row["nom"] . '</option>';
+                            
                         };
                         ?>
                     
                     </select>
-                    <span></span>
                 </div>
 
 
 
                 <script>
-                    traitement();
-                    var lock = 0;
                     function traitement(){
                         var liste, texte;
                         liste = document.getElementById("categorie");
                         texte = liste.options[liste.selectedIndex].value;
 
-                        if(lock == 0){
                         document.getElementById("sous-categorie").selectedIndex = "aucun";
-                        lock = 1;
-                        }
+
                         let i = 1;
                         while(i <= 13){
                             
@@ -124,7 +100,26 @@
                 <br>
 
 
-                <input type="submit" id='submit' value="POSTER LES MODIFICATION" >               
+                <input type="submit" id='submit' value="POSTER" >               
+
+                <?php
+                if(isset($_GET['erreur'])){
+                    $err = $_GET['erreur'];
+                    if($err==1){
+                        echo "<p style='color:red'>Nom de l'article déja inscrit</p>";
+                    }
+                    if($err==2){
+                        echo "<p style='color:red'>Mot de passe incorrect</p>";
+                    }
+                    if($err==3){
+                        echo "<p style='color:red'>Echec d'inscription</p>";
+                    }
+                }
+                ?>
+
+                <div class="inscri">
+                    <a href="connection.php">Déjà un compte ? S'identifier</a>
+                </div>
                 
             </form>
         </div>

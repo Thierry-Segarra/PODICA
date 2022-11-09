@@ -63,7 +63,7 @@
               ?>
                 <li><a href="../liste-mes-articles.php">Vos articles</a></li>
                 <li><a href="../parametre-compte.php">Paramètres</a></li>
-                <li><a href="../deco.php?deco=1">Deconnection</a></li>
+                <li><a href="../Fonction_PHP_JS/deco.php?deco=1">Deconnection</a></li>
             </ul>
             <?php
             }

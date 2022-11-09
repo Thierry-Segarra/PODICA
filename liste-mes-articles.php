@@ -6,15 +6,15 @@
 </head>
 <body>
 <header>
-<?php include('header.php')?>
+<?php include('module/header.php')?>
 </header>
 
-<a href="article v1/add-article.php"><input type="button" name="add_article" value="Ajouter un nouveau article"/></a><br><br>
+<a href="article/add-article.php"><input type="button" name="add_article" value="Ajouter un nouveau article"/></a><br><br>
 
 <div class="wrapper-article">
 
 <?php
-include('connect.php');
+include('Fonction_PHP_JS/connect.php');
 
 $requete = "SELECT count(*) from article";
 $exec_requete = mysqli_query($db, $requete);
@@ -45,10 +45,10 @@ if($count!=0){
        ';
        ?>
             <a href="afficher-article.php?id=<?php echo $row["id_article"] ?>"><input type="button" name="affiche_article" value="Afficher l'article"/></a>
-            <a href="article v1/modifier-article.php?id=<?php echo $row["id_article"] ?>"><input type="button" name="modif_article" value="Modifier l'article"/></a>
+            <a href="article/modifier-article.php?id=<?php echo $row["id_article"] ?>"><input type="button" name="modif_article" value="Modifier l'article"/></a>
 
             
-            <a href="supp_article.php?id=<?php echo $row['id_article']?>" ><input type="button" name="supp_article" value="Supprimer l'article"/></a>
+            <a href="Fonction_PHP_JS/supp_article.php?id=<?php echo $row['id_article']?>" ><input type="button" name="supp_article" value="Supprimer l'article"/></a>
        <?php
        echo '</div></div>';
         
@@ -58,7 +58,7 @@ if($count!=0){
 ?>
 </div>
 <footer>
-    <?php include('footer.php')?>
+    <?php include('module/footer.php')?>
 </footer>
 </body>
 

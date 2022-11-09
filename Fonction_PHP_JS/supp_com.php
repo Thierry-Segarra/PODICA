@@ -22,7 +22,7 @@ if(isset($_GET['id'])){
             $suppcom="delete from commentaire where id_commentaire =".$_GET['id']." ";
             $exec_requete1 = mysqli_query($db,$suppcom);
 
-            header('Location: afficher-article.php?id='.$_GET['id_article']);
+            header('Location: ../afficher-article.php?id='.$_GET['id_article']);
 
         }else{
             echo "Vous n'êtes pas autorisé à supprimer un commentaire qui ne vous appartient pas !";

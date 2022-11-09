@@ -2,7 +2,7 @@
 <html lang="fr">
 <body>
 <header>
-<?php include('header.php')?>
+<?php include('module/header.php')?>
 <link rel="stylesheet" href="css/style-articles.css">
 </header>
 
@@ -16,7 +16,7 @@
     <div class="wrapper-article">
 
 <?php
-include('connect.php');
+include('Fonction_PHP_JS/connect.php');
 
 $requete = "SELECT count(*) from article";
 $exec_requete = mysqli_query($db, $requete);
@@ -52,7 +52,7 @@ if($count!=0){
 ?>
 </div>
 <footer>
-    <?php include('footer.php')?>
+    <?php include('module/footer.php')?>
 </footer>
 </body>
 </html> 

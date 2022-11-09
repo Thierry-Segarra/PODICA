@@ -8,13 +8,13 @@
     <body>
     <header>
             <?php
-            include('header.php');
+            include('module/header.php');
             ?>
         </header>
 
         <div class="center">
             <h1>Connectez-vous</h1>
-            <form action="verif.php" method="post">
+            <form action="Fonction_PHP_JS/verif.php" method="post">
 
                 <div class="texte">
                     <input type="text" name="username" required>

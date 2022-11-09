@@ -8,12 +8,12 @@
     <body>
     <header>
             <?php
-            include('header.php');
+            include('module/header.php');
             if(isset($_SESSION['id'])){
             ?>
         </header>
       
-        <form class="form" action="signal-form.php" method='POST'>
+        <form class="form" action="Fonction_PHP_JS/signal-form.php" method='POST'>
             <h1>SIGNALER CET ARTICLE</h1>
             <h3>Pourquoi signaler cet article ?</h3>
             <!---Cases a cocher-->
@@ -43,7 +43,7 @@
                     }
                     if(other.checked == 1)
                     {
-                        document.getElementById('textarea').innerHTML= '<textarea id="detail"  class="textarea_signalement" name="detail" rows="8" placeholder="Zone de texte!" ></textarea>';
+                        document.getElementById('textarea').innerHTML= '<textarea id="detail"  class="textarea_signalementFonction_PHP_JS" name="detail" rows="8" placeholder="Zone de texte!" ></textarea>';
                     }
                     else
                     {

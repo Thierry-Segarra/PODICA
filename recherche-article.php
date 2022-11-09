@@ -7,7 +7,7 @@
 
 <body>
 <header>
-<?php include('header.php')?>
+<?php include('module/header.php')?>
 </header>
     <form class="form" action="recherche-article.php" id="article" name="article" method="POST">
         <a class="barresearch"><u>Rechercher un article :</u><input type="text" id="rechercher" name="rechercher" placeholder="Rechercher..."></input></a>
@@ -19,7 +19,7 @@
             <select name="categorie" id="categorie" form="article" onchange="traitement()">
                 <option value="0">Tout</option>
                 <?php
-                include('connect.php');
+                include('Fonction_PHP_JS/connect.php');
                 $requete = "SELECT * FROM categorie";
                 $exec_requete = mysqli_query($db,$requete) or die("Foobar");
 
@@ -140,7 +140,7 @@ if((isset($_POST['categorie']) && isset($_POST['id_sous_categorie'])) || (isset(
     }
 </script>
 <footer>
-    <?php include('footer.php')?>
+    <?php include('module/footer.php')?>
 </footer>
 </body>
 

@@ -8,12 +8,12 @@
     <body>
     <header>
             <?php
-            include('header.php');
+            include('module/header.php');
             ?>
         </header>
         <div class="center">    
         <h1>Inscription</h1>        
-            <form action="inscri.php" method="POST">
+            <form action="Fonction_PHP_JS/inscri.php" method="POST">
                 
                 <div class="texte">
                     <input type="text" name="username" maxlength="13" required>

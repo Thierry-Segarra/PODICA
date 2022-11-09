@@ -32,7 +32,7 @@ if(isset($_GET['id']) and !empty($_GET['id'])){
             if($_SESSION['role'] != 'admin'){
                 header('Location: liste-mes-articles.php');
             }else{
-                header('Location: admin/index.php');
+                header('Location: ../admin/index.php');
             }
 
         }else{

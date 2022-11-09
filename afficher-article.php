@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-<?php include("header.php")?>
+<?php include("module/header.php")?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
 
 <?php
 
-include('connect.php');
+include('Fonction_PHP_JS/connect.php');
 
 if (isset($_GET['id']))
 
@@ -80,7 +80,7 @@ while($row = mysqli_fetch_assoc($exec_requete1)){
     if(isset($_SESSION['id'])){
         if($row["id_user"] == $_SESSION['id']){
     ?>
-    <a href="supp_com.php?id=<?php echo $row["id_commentaire"]  ?>&id_article=<?php echo $row["id_article"]  ?>" style="border: solid 1px gray; border-radius:10px; text-decoration:none; padding:3px; margin-bottom:5px; background-color:red;color:white; float:left; text-align:right;">Suprimer</a>
+    <a href="Fonction_PHP_JS/supp_com.php?id=<?php echo $row["id_commentaire"]  ?>&id_article=<?php echo $row["id_article"]  ?>" style="border: solid 1px gray; border-radius:10px; text-decoration:none; padding:3px; margin-bottom:5px; background-color:red;color:white; float:left; text-align:right;">Suprimer</a>
 
 <?php
     }
@@ -94,6 +94,6 @@ echo '</div></div></br></br></br>';
 <!-- <div class="btn-signaler"> -->
 <!-- </div> -->
 <footer>
-    <?php include("footer.php")?>
+    <?php include("module/footer.php")?>
 </footer>
 </html>

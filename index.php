@@ -5,7 +5,7 @@
     </head>
 <body class="bodd">
 <header>
-<?php include('header.php')?>
+<?php include('module/header.php')?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 </header>
 
@@ -25,7 +25,7 @@
     <div class="wrapper-article">
 
 <?php
-include('connect.php');
+include('Fonction_PHP_JS/connect.php');
 
 $requete = "SELECT count(*) from article";
 $exec_requete = mysqli_query($db, $requete);
@@ -62,7 +62,7 @@ if($count!=0){
 ?>
 </div>
 <footer>
-    <?php include('footer.php')?>
+    <?php include('module/footer.php')?>
 </footer>
 </body>
 </html>

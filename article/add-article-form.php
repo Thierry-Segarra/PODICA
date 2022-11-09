@@ -4,7 +4,7 @@ echo $_POST['titre'].'<br>'.$_POST['contenu'].'<br>'.$_POST['description'].'<br>
 if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['description']) && isset($_POST['categorie']) && isset($_POST['sous-categorie']))
 {
     // connexion à la base de données
-    include('../connect.php');
+    include('../Fonction_PHP_JS/connect.php');
     
     // on applique les troi fonctions mysqli_real_escape_string et htmlspecialchars
     // pour éliminer toute attaque de type injection SQL et XSS

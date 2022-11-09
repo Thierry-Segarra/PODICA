@@ -32,28 +32,28 @@ if(isset($_POST['username']) && isset($_POST['password']))
 
          if($reponse2['role'] == 'admin'){
             $_SESSION['role'] = 'admin';
-            header('Location: index.php');
+            header('Location: ../index.php');
          }else{
             $_SESSION['role'] = 'null';
-            header('Location: index.php');
+            header('Location: ../index.php');
          }
             
       }
       else
       {
-         header('Location: connection.php?erreur=1'); // utilisateur ou mot de passe incorrect
+         header('Location: ../connection.php?erreur=1'); // utilisateur ou mot de passe incorrect
       }
 
       
     }
     else
     {
-       header('Location: connection.php?erreur=2'); // utilisateur ou mot de passe vide
+       header('Location: ../connection.php?erreur=2'); // utilisateur ou mot de passe vide
     }
 }
 else
 {
-   header('Location: connection.php');
+   header('Location: ../connection.php');
 }
 mysqli_close($db); // fermer la connexion
 ?>
