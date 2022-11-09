@@ -34,3 +34,11 @@ button{float:left;padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-
 
 button:hover{background:#78788c;color:#fff}
 
+.textarea_signalement{
+    resize: none;
+    overflow: auto;
+    border: 0px;
+    width: 100%;
+    background-color: white;
+    color: black;
+}

@@ -29,13 +29,14 @@ if($count!=0){
         echo'
             <div class="article">
             <div class="row-td">
-       <a class="titre" href="afficher-article.php?id=' . $row["id_article"] . '">Titre : ' . $row["titre"]. '</a>
+       <a class="titre" href="../afficher-article.php?id=' . $row["id_article"] . '">Titre : ' . $row["titre"]. '</a>
        <p> Date : ' . $row["date_publication"] . '</p>
        <p>Nombre de signalement ' . $row["nb_signalement"] . '</p></div>
        
        
        <div class="row-desc">
-       <p>Descrisption : ' . $row["description"] . '</p>
+       <textarea id="newPoste" class="textarea_index" disabled>Description : ' . $row["description"] . '</textarea>
+
        </div>
 
        <div class="row-ncat">

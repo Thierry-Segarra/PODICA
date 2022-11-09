@@ -24,13 +24,13 @@
             <form action="parametre-compte-form.php" method="POST">
                 
                 <div class="texte">
-                    <input type="text" name="username" maxlength="13" required>
+                    <input type="text" name="username" maxlength="13" >
                     <span></span>
                     <label>Changer le Nom d'utilisateur</label>
                 </div>
                 
                 <div class="texte">
-                    <input type="email" name="email" required>
+                    <input type="email" name="email" >
                     <span></span>
                     <label>Changer l'Email</label>
                 </div>

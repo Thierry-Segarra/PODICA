@@ -18,20 +18,19 @@ if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['descripti
     if($titre !== "" && $contenu !== "" && $description !== "" && $categorie !== "autre" && $sous_categorie !== "autre")
     {
             
-        $requete = "SELECT count(id_user) FROM article where titre = '".$titre."'";
+        $requete = "SELECT * FROM article where titre = '".$titre."'";
         $exec_requete = mysqli_query($db,$requete) or die("Foobar");
         $reponse      = mysqli_fetch_array($exec_requete);
-        $count = $reponse['count(id_user)']; // si 0 = non utiliser si 1 = utiliser
 
         // echo $titre.'<br>'.$contenu.'<br>'.$categorie.'<br>'.$description.'<br>'.$_SESSION['id'].'<br>'.$_POST['id'].'<br>'.$sous_categorie.'<br>';
         // echo $reponse['id_user'].'<br>'. $_SESSION['id'];
-        if($count==0) // !=0 si le nom_utilisateur et deja utiliser | == 0 si le nom_utilisateur n'est pas utiliser
+        if($reponse['id_user'] == $_SESSION['id']) // !=0 si le nom_utilisateur et deja utiliser | == 0 si le nom_utilisateur n'est pas utiliser
         {   
             echo $titre.'<br>'.$contenu.'<br>'.$categorie.'<br>'.$description.'<br>'.$_SESSION['id'].'<br>'.$_POST['id'].'<br>'.$sous_categorie.'<br>';
             $requete = "UPDATE `article` SET id_categorie= '".$categorie."',id_sous_categorie= '".$sous_categorie."', titre = '".$titre."', description = '".$description."', contenue = '".$contenu."' WHERE id_article = ".$_POST['id']." and id_user = ".$_SESSION['id'].""; // id auto-increase
             $requete = mysqli_query($db,$requete) or die("Foobar2");// doit normalement executer la requete SQL
             if($requete){
-                header('Location: ../index.php');
+                //header('Location: ../liste-mes-articles.php');
             }
             else
             {
@@ -40,7 +39,7 @@ if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['descripti
         }
         else
         {
-            //header('Location: modifier-article.php?erreur=1');// nom d'utilisateur et deja inscrit
+            header('Location: modifier-article.php?erreur=1');// nom d'utilisateur et deja inscrit
         }
     }
     else

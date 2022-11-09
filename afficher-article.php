@@ -28,9 +28,9 @@ $reponse = mysqli_fetch_array($exec_requete);
         
         echo'<div class="article">
         <div class="row-top">
-        <div class="block-cat>
-        <p style=""> Catégorie : ' . $reponse["nom"] .' </p>
-        <p style=""> Sous catégoire : ' . $reponse["nom_sc"] .'</p>
+        <div class="block-cat">
+        <p> Catégorie : ' . $reponse["nom"] .' </p>
+        <p> Sous catégoire : ' . $reponse["nom_sc"] .'</p>
         </div>
         
 
@@ -44,13 +44,13 @@ $reponse = mysqli_fetch_array($exec_requete);
         <div class="row-contenu">
         <div class="block-contenu">
         <p> Titre : ' . $reponse["titre"] .' </p>
-       <p> Contenu : ' . $reponse["contenue"] . '</p>
+        <textarea id="newPoste" class="form_input" name="topic" placeholder="Contenu du poste..." disabled>Contenu : ' . $reponse["contenue"] . '</textarea>
        </div>';  
  
 ?>
        <a class="favorite styled" href="signal.php?id-article=<?php echo $_GET['id'] ?>" style="border: solid 1px gray; border-radius:10px; text-decoration:none; padding:3px; margin-bottom:5px; background-color:red;color:white; float:left; text-align:right;">Signaler</a>
 <?php
-echo'</div></div>';
+echo'</div></div> ';
 ?>
 </br></br>
 
@@ -75,13 +75,12 @@ while($row = mysqli_fetch_assoc($exec_requete1)){
     </div>
 
     <div class="contenu-commentaire">
-    <p style="float:left; width:90%; padding-left: 10px;"> Commentaire : </br>' . $row["contenue_com"] . '</p>
+    <textarea id="newPoste" rows="8" class="form_input" name="topic" placeholder="Contenu du poste..." disabled>Contenu : ' . $row["contenue_com"] . '</textarea>
     ';
     if(isset($_SESSION['id'])){
         if($row["id_user"] == $_SESSION['id']){
     ?>
-<br>
-        <a href="supp_com.php?id=<?php echo $row["id_commentaire"]  ?>&id_article=<?php echo $row["id_article"]  ?>" style="border: solid 1px gray; border-radius:10px; text-decoration:none; padding:3px; margin-bottom:5px; background-color:red;color:white; float:left; text-align:right;">Suprimer</a>
+    <a href="supp_com.php?id=<?php echo $row["id_commentaire"]  ?>&id_article=<?php echo $row["id_article"]  ?>" style="border: solid 1px gray; border-radius:10px; text-decoration:none; padding:3px; margin-bottom:5px; background-color:red;color:white; float:left; text-align:right;">Suprimer</a>
 
 <?php
     }

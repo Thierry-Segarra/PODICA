@@ -17,13 +17,15 @@
         </li>
         <li>
           <a href="../recherche-article.php?id_categorie=2&id_sous_categorie=0">Programmation</a>
-          <ul class="sub-menu">
+          <div class="sub-menu">
+          <ul>
             <li><a href="../recherche-article.php?id_categorie=2&id_sous_categorie=4">Python</a></li>
             <li><a href="../recherche-article.php?id_categorie=2&id_sous_categorie=5">Java</a></li>
             <li><a href="../recherche-article.php?id_categorie=2&id_sous_categorie=6"> PHP</a></li>
             <li><a href="../recherche-article.php?id_categorie=2&id_sous_categorie='7'">HTML</a></li>
             <li><a href="../recherche-article.php?id_categorie=2&id_sous_categorie=8">Javascript</a></li>
           </ul>
+          </div>
         </li>
         <li>
         <a href="../recherche-article.php?id_categorie=3&id_sous_categorie=0">Outil professionnel</a>          

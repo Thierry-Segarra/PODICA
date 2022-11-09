@@ -118,3 +118,12 @@ input[type="submit"]:hover{
 .inscri a:hover{
     text-decoration: underline;
 }
+
+.textarea_add{
+    resize: none;
+    overflow: auto;
+    border: 0px;
+    width: 100%;
+    background-color: white;
+    color: black;
+}

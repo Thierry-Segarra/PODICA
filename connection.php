@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="texte">
-                    <input type="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{12}$" required>
+                    <input type="password" name="password" required>
                     <span></span>
                     <label>Mot de passe</label>
                 </div>

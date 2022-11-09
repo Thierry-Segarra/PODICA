@@ -46,19 +46,28 @@ body{
     text-align: left;
     color: black;
     padding-left: 20px;
+    padding-right: 20px;
     display: flex;
+    flex-wrap: wrap;    
 }
 
 .block-contenu{
     float:left;
-    width:85%;
+    width:100%;
+}
+.form_input{
+    resize: none;
+    overflow: auto;
+    border: 0px;
+    width: 100%;
+    background-color: #FFFFFF;
+    color: black;
 }
 
 .com{
     vertical-align:middle ;
     width: 60%;
     Height: fit-content;
-    margin-top: 50px;
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -93,6 +102,7 @@ body{
     color: black;
     padding-left: 10px; 
     padding-top: 10px;
+    flex-wrap: wrap
 }
 .btn-signaler{
     text-align: center;

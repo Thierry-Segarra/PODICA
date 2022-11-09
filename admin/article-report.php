@@ -4,8 +4,9 @@
     <head>
         <title>Article reporté</title>
         <link rel="stylesheet" href="../css/style-artreport.css">
-
+    <head>
     <body>
+        
 <?php
 $id_article = $_GET['id_article'];
 include('../connect.php');
@@ -15,7 +16,7 @@ $exec_requete = mysqli_query($db, $requete);
 
 ?>
 
-<?php echo '<button href="../afficher-article.php?id=' . $id_article . '"> Lien article</button><br>'?>
+<?php echo '<button href="../afficher-article.php?id=' . $id_article . '">Lien article</button><br>'?>
 
 <?php
 while($row = mysqli_fetch_assoc($exec_requete)){
@@ -47,17 +48,7 @@ while($row = mysqli_fetch_assoc($exec_requete)){
     }
     $liste_motif = $liste_motif . '</ul>';
     
-    echo'<br><div style="width: 100%;
-    height: 100;
-    border: 1px solid;
-    background: #ffffff;
-    border-radius: 10px;
-    font-size: 18px;
-    color: #78788c;
-    font-weight: 700;
-    outline: none
-    border-color:#47a8bd
-    font-family:montserrat;">
+    echo'<br><div class="liste">
     
     <table>
       <tr>

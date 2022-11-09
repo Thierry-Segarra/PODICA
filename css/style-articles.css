@@ -55,11 +55,22 @@ color: white;
     background-color: #a7a7a7;
     text-align: left;
     color: black;
+    overflow-y: auto;
+    display: flex;
+    
 }
 .wrapper-article .article .row-ncat{
     width: 100%;
     height: auto;
     background-color: white;
     text-align: left;
+    color: black;
+}
+.textarea_index{
+    resize: none;
+    overflow: auto;
+    border: 0px;
+    width: 100%;
+    background-color: #a7a7a7;
     color: black;
 }

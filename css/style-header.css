@@ -49,6 +49,11 @@
     transform: scale(0);
     transform-origin: top center;
     transition: all 300ms ease-in-out;
+    border: solid 1px black;
+  }
+
+  .sub-menu li a{
+    color: #47A8BD;
   }
 
   .sub-menu li {
@@ -58,7 +63,6 @@
     background: #FFFFFF;
     padding: 8px 0;
     color: white;
-    border: solid 2px #6f686d;
     transform: scale(0);
     transform-origin: top center;
     transition: all 300ms ease-in-out;

@@ -11,7 +11,7 @@
                     <div class="col-left">
                         <h1>Nous contacter</h1>
                         <ul>
-                            <li>Support</li>
+                            <li><a href="#">Support</a></li> <!-- mettre le lien du contact -->
                             <li>00.00.00.00.00</li>
                         </ul>
                     </div>

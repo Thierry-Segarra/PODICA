@@ -35,14 +35,14 @@ if($count!=0){
        <p> Date : ' . $row["date_publication"] . '</p></div>
        
        <div class="row-desc">
-       <p>Descrisption : ' . $row["description"] . '</p>
+       <textarea id="newPoste" class="textarea_index" disabled>Description : ' . $row["description"] . '</textarea>
        </div>
 
        <div class="row-ncat">
             <p>Catégorie : ' . $row["nom"] . '</p>
             <p>Sous Catégorie : ' . $row["nom_sc"] . '</p>
             <p>Auteur: ' . $row["pseudo"] . '</p>
-       </div>';
+       ';
        ?>
             <a href="afficher-article.php?id=<?php echo $row["id_article"] ?>"><input type="button" name="affiche_article" value="Afficher l'article"/></a>
             <a href="article v1/modifier-article.php?id=<?php echo $row["id_article"] ?>"><input type="button" name="modif_article" value="Modifier l'article"/></a>
@@ -50,7 +50,7 @@ if($count!=0){
             
             <a href="supp_article.php?id=<?php echo $row['id_article']?>" ><input type="button" name="supp_article" value="Supprimer l'article"/></a>
        <?php
-       echo '</div>';
+       echo '</div></div>';
         
     };
 

@@ -6,11 +6,18 @@
 <body class="bodd">
 <header>
 <?php include('header.php')?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 </header>
 
     <div class="row-bienvenue">
         <div class="bienvenue">
-            <h1>Bienvenue sur Podica</h1>
+        <h1 class="ml1">
+        <span class="text-wrapper">
+            <span class="line line1"></span>
+            <span class="letters">Bienvenue sur Podica</span>
+            <span class="line line2"></span>
+        </span>
+        </h1>
         </div>
     </div>
     <br>
@@ -39,7 +46,7 @@ if($count!=0){
        <p> Date : ' . $row["date_publication"] . '</p></div>
        
        <div class="row-desc">
-       <p>Descrisption : ' . $row["description"] . '</p>
+       <textarea id="newPoste" class="textarea_index" disabled>Description : ' . $row["description"] . '</textarea>
        </div>
 
        <div class="row-ncat">
@@ -58,4 +65,28 @@ if($count!=0){
     <?php include('footer.php')?>
 </footer>
 </body>
-</html> 
+</html>
+<script>
+  //Wrap every letter in a span
+var textWrapper = document.querySelector('.ml1 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline()
+  .add({
+    targets: '.ml1 .letter',
+    scale: [0.3,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 600,
+    delay: (el, i) => 70 * (i+1)
+  }).add({
+    targets: '.ml1 .line',
+    scaleX: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700,
+    offset: '-=875',
+    delay: (el, i, l) => 80 * (l - i)
+  })
+</script>

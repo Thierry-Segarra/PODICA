@@ -18,12 +18,22 @@ if(isset($_GET['id']) and !empty($_GET['id'])){
 
         $info_utilisateur = $reponse2;
         print_r($info_utilisateur);
-        if($info_utilisateur['id_user'] == $_SESSION['id'] || $info_utilisateur['role'] == 'admin'){
+        if($info_utilisateur['id_user'] == $_SESSION['id'] || $_SESSION['role'] == 'admin'){
 
-            $supparticle="delete from article where id_article =".$_GET['id']." ";
-            $exec_requete1 = mysqli_query($db,$supparticle);
+            $supparticle1="delete from article where id_article =".$_GET['id']." ";
+            $exec_requete1 = mysqli_query($db,$supparticle1);
 
-            header('Location: liste-mes-articles.php');
+            $supparticle2="delete from commentaire where id_article =".$_GET['id']." ";
+            $exec_requete2 = mysqli_query($db,$supparticle2);
+
+            $supparticle3="delete from signaler where id_article =".$_GET['id']." ";
+            $exec_requete3 = mysqli_query($db,$supparticle3);
+
+            if($_SESSION['role'] != 'admin'){
+                header('Location: liste-mes-articles.php');
+            }else{
+                header('Location: admin/index.php');
+            }
 
         }else{
             echo "Vous n'êtes pas autorisé à supprimer un article qui ne vous appartient pas !";

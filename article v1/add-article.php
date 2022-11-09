@@ -22,13 +22,11 @@
                     <label>Titre de votre article</label>
                 </div>
                 <div class="texte">
-                    <textarea class='areatext' id="description" name="description"  placeholder="Description"></textarea>
-                    <span></span>
+                    <textarea class='textarea_add' id="description" rows="6"name="description"  placeholder="Description"></textarea>
                 </div>
 
                 <div class="texte">
-                    <textarea class='areatext' id="contenu" name="contenu" placeholder="Contenu"></textarea>
-                    <span></span>
+                    <textarea class='textarea_add' id="contenu" rows="6" name="contenu" placeholder="Contenu"></textarea>
                 </div>
                 
                 <div class="texte">
@@ -48,7 +46,6 @@
                         ?>
                         
                     </select>
-                    <span></span>
                 </div>
 
                 <div class="texte">
@@ -67,7 +64,6 @@
                         ?>
                     
                     </select>
-                    <span></span>
                 </div>
 
 
