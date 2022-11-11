@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
+<head>
+        <meta charset="utf-8">
+        <title>Podica</title>
+        <link rel="stylesheet" href="css/loginstyle.css">
+    </head>
 <body>
 <header>
 <?php include('module/header.php')?>

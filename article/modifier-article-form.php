@@ -30,7 +30,7 @@ if(isset($_POST['titre']) && isset($_POST['contenu']) && isset($_POST['descripti
             $requete = "UPDATE `article` SET id_categorie= '".$categorie."',id_sous_categorie= '".$sous_categorie."', titre = '".$titre."', description = '".$description."', contenue = '".$contenu."' WHERE id_article = ".$_POST['id']." and id_user = ".$_SESSION['id'].""; // id auto-increase
             $requete = mysqli_query($db,$requete) or die("Foobar2");// doit normalement executer la requete SQL
             if($requete){
-                //header('Location: ../liste-mes-articles.php');
+                header('Location: ../liste-mes-articles.php');
             }
             else
             {

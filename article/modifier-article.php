@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="../css/loginstyle.css">
     </head>
     <body>
+    <button><a href="../liste-mes-articles.php">Retour</a></button>
     <?php
         session_start();
         include('../Fonction_PHP_JS/connect.php');
@@ -16,11 +17,6 @@
         $exec_requete = mysqli_query($db,$requete);
         $reponse      = mysqli_fetch_array($exec_requete);
         ?>
-    <header>
-            <?php
-            include('module/header.php');
-            ?>
-        </header>
         <div class="center">    
         <h1>Modification d'article</h1>        
             <form action="modifier-article-form.php"  name='article' id='article' method="POST">
@@ -31,12 +27,12 @@
                     <label>Titre de votre article</label>
                 </div>
                 <div class="texte">
-                    <textarea class='areatext' id="description" name="description"  placeholder="Description"><?php echo $reponse["description"] ?></textarea>
+                    <textarea class='textarea_add' id="description" name="description"  placeholder="Description"><?php echo $reponse["description"] ?></textarea>
                     <span></span>
                 </div>
 
                 <div class="texte">
-                    <textarea class='areatext' id="contenu" name="contenu" placeholder="Contenu"><?php echo $reponse["contenue"] ?></textarea>
+                    <textarea class='textarea_add' id="contenu" name="contenu" placeholder="Contenu"><?php echo $reponse["contenue"] ?></textarea>
                     <span></span>
                 </div>
                 

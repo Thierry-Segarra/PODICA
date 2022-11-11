@@ -6,12 +6,7 @@
         <link rel="stylesheet" href="../css/loginstyle.css">
     </head>
     <body>
-    <header>
-            <?php
-            session_start();
-            include('module/header.php');
-            ?>
-        </header>
+        <button><a href="../liste-mes-articles.php">Retour</a></button>
         <div class="center">    
         <h1>Création d'article</h1>        
             <form action="add-article-form.php" name='article' id='article' method="POST">

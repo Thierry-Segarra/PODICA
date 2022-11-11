@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>Connexion</title>
+        <title>Podica</title>
         <link rel="stylesheet" href="css/loginstyle.css">
     </head>
     <body>
@@ -43,7 +43,7 @@
                         echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
                     }
                     if($err==3){
-                        echo "<center><p style='color:green'>Inscription résussie !</p></center>";
+                        echo "<center><p style='color:green'>Inscription réussie !</p></center>";
                     }
 
                 }

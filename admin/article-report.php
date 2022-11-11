@@ -16,7 +16,7 @@ $exec_requete = mysqli_query($db, $requete);
 
 ?>
 
-<?php echo '<button href="../afficher-article.php?id=' . $id_article . '">Lien article</button><br>'?>
+<?php echo '<button><a href="../afficher-article.php?id=' . $id_article . '">Lien article</a></button><br>'?>
 
 <?php
 while($row = mysqli_fetch_assoc($exec_requete)){

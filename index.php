@@ -2,6 +2,7 @@
 <html lang="fr">
     <head>
     <link rel="stylesheet" href="css/style-articles.css">
+    <title>Podica</title>
     </head>
 <body class="bodd">
 <header>

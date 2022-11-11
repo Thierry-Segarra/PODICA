@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>Codec</title>
+        <title>Podica</title>
         <link rel="stylesheet" href="css/loginstyle.css">
     </head>
     <body>
@@ -62,7 +62,7 @@
                 ?>
 
                 <div class="inscri">
-                <a href = "index.php">Retour acceuil</a>
+                <a href = "index.php">Retour accueil</a>
                 </div>
                 
             </form>

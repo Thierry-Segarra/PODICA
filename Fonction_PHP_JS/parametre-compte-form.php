@@ -57,6 +57,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email
             }
         }
         if($lock != 0){
+            $_SESSION['username'] = $user;
             header('Location: ../index.php');
         }
             

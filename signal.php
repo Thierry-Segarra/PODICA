@@ -43,7 +43,7 @@
                     }
                     if(other.checked == 1)
                     {
-                        document.getElementById('textarea').innerHTML= '<textarea id="detail"  class="textarea_signalementFonction_PHP_JS" name="detail" rows="8" placeholder="Zone de texte!" ></textarea>';
+                        document.getElementById('textarea').innerHTML= '<textarea id="detail"  class="textarea_signalement" name="detail" rows="8" placeholder="Zone de texte!" ></textarea>';
                     }
                     else
                     {

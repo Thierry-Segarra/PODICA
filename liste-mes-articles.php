@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <meta charset="UTF-8">
+<title>Podica</title>
 <head>
 <link rel="stylesheet" href="css/style-articles.css">
 </head>

@@ -8,7 +8,7 @@ if($deco==1){
     $_SESSION = array();
     
     session_destroy(); 
-    header('Location: index.php?deco');
+    header('Location: ../index.php?deco');
     
 }
 ?>

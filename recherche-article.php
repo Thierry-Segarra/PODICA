@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <title>Rechercher un article</title>
+    <title>Podica</title>
     <head>
     <link rel="stylesheet" href="css/stylesearch.css">
 </head>

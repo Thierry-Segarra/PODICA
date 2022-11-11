@@ -2,16 +2,18 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>Codec</title>
+        <title>Podica</title>
         <link rel="stylesheet" href="css/loginstyle.css">
     </head>
     <body>
-    <header>
+        <header>
             <?php
             include('module/header.php');
             ?>
         </header>
-        <div class="center">    
+        <br>
+        <br>
+        <div class="center" style="margin-top: 50px;">    
         <h1>Inscription</h1>        
             <form action="Fonction_PHP_JS/inscri.php" method="POST">
                 

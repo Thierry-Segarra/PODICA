@@ -44,7 +44,7 @@ $reponse = mysqli_fetch_array($exec_requete);
         <div class="row-contenu">
         <div class="block-contenu">
         <p> Titre : ' . $reponse["titre"] .' </p>
-        <textarea id="newPoste" class="form_input" name="topic" placeholder="Contenu du poste..." disabled>Contenu : ' . $reponse["contenue"] . '</textarea>
+        <textarea id="newPoste" class="form_input" rows="15" name="topic" placeholder="Contenu du poste..." disabled>Contenu : ' . $reponse["contenue"] . '</textarea>
        </div>';  
  
 ?>

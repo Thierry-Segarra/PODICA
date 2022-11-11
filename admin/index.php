@@ -7,8 +7,9 @@
 <header>
 <?php 
 session_start();
-include('../article/module/header.php')?>
+?>
 </header>
+<button><a href="../index.php">Retour</a></button>
 
 <div class="wrapper-article">
 <?php
