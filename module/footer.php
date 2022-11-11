@@ -11,7 +11,7 @@
                     <div class="col-left">
                         <h1>Nous contacter</h1>
                         <ul>
-                            <li><a href="#">Support</a></li> <!-- mettre le lien du contact -->
+                            <li><a href="Contact">Support</a></li> <!-- mettre le lien du contact -->
                             <li>00.00.00.00.00</li>
                         </ul>
                     </div>
@@ -21,9 +21,9 @@
                     <div class="col-right">
                          <h1>Nos réseaux sociaux</h1>
                         <ul>
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Instagram</a></li>
-                            <li><a href="#">Linkedin</a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=100086355815941">Facebook</a></li>
+                            <li><a href="https://www.linkedin.com/in/podica-blog-488b46251/">Instagram</a></li>
+                            <li><a href="https://www.instagram.com/podicablog/?hl=fr">Linkedin</a></li>
                         </ul>
                     </div>
                 </div>

@@ -111,10 +111,6 @@
                     }
                 }
                 ?>
-
-                <div class="inscri">
-                    <a href="connection.php">Déjà un compte ? S'identifier</a>
-                </div>
                 
             </form>
         </div>

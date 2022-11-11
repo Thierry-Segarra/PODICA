@@ -30,9 +30,9 @@ if($count!=0){
         echo'
             <div class="article">
             <div class="row-td">
-       <a class="titre" href="../afficher-article.php?id=' . $row["id_article"] . '">Titre : ' . $row["titre"]. '</a>
-       <p> Date : ' . $row["date_publication"] . '</p>
-       <p>Nombre de signalement ' . $row["nb_signalement"] . '</p></div>
+       <a class="titre" href="../afficher-article.php?id=' . $row["id_article"] . '">Titre : ' . $row["titre"]. '</a><br>
+       Date : ' . $row["date_publication"] . '<br>
+       Nombre de signalement ' . $row["nb_signalement"] . '</div>
        
        
        <div class="row-desc">
@@ -41,9 +41,9 @@ if($count!=0){
        </div>
 
        <div class="row-ncat">
-            <p>Catégorie : ' . $row["nom"] . '</p>
-            <p>Sous Catégorie : ' . $row["nom_sc"] . '</p>
-            <p>Auteur: ' . $row["pseudo"] . '</p>
+            Catégorie : ' . $row["nom"] . '<br>
+            Sous Catégorie : ' . $row["nom_sc"] . '<br>
+            Auteur: ' . $row["pseudo"] . '<br>
             <a href="article-report.php?id_article=' . $row['id_article'] .'"> Voir les signalements</a>
 
        <a href="../Fonction_PHP_JS/supp_article.php?id=' . $row['id_article'] .'"> Suprimer article</a>
