@@ -30,13 +30,13 @@
                 </div>
                 
                 <div class="texte">
-                    <input type="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{12}$" required>
+                    <input type="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{12,}$" required>
                     <span></span>
                     <label>Mot de passe</label>
                 </div>
 
                 <div class="texte">
-                    <input type="password" name="passwordConf" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{12}$" required>
+                    <input type="password" name="passwordConf" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{12,}$" required>
                     <span></span>
                     <label>Confirmer mot de passe</label>
                 </div>
